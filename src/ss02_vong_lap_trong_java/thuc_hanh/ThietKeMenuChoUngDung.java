@@ -1,6 +1,8 @@
+package ss02_vong_lap_trong_java.thuc_hanh;
+
 import java.util.Scanner;
 
-public class thiet_ke_menu_cho_ung_dung {
+public class ThietKeMenuChoUngDung {
     public static void main(String[] args) {
         int choice = -1;
         Scanner input = new Scanner(System.in);

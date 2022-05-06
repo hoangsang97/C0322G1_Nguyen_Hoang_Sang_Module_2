@@ -1,6 +1,8 @@
+package ss01_introduction_to_java.bai_tap;
+
 import java.util.Scanner;
 
-public class hien_thi_loi_chao {
+public class HienThiLoiChao {
     public static void main(String[] args) {
         System.out.println("Enter your name: ");
 

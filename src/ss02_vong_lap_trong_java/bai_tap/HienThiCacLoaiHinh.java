@@ -1,6 +1,8 @@
+package ss02_vong_lap_trong_java.bai_tap;
+
 import java.util.Scanner;
 
-public class hien_thi_cac_loai_hinh {
+public class HienThiCacLoaiHinh {
     public static void main(String[] args) {
         int number = -1;
         Scanner sc = new Scanner(System.in);

@@ -1,6 +1,8 @@
+package ss01_introduction_to_java.thuc_hanh;
+
 import java.util.Scanner;
 
-public class txt {
+public class Txt {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String password;

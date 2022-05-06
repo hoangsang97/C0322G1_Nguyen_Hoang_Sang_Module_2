@@ -1,6 +1,8 @@
+package ss01_introduction_to_java.bai_tap;
+
 import java.util.Scanner;
 
-public class doc_so_thanh_chu {
+public class DocSoThanhChu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int number = -1;

@@ -1,4 +1,6 @@
-public class khai_bao_su_dung_bien {
+package ss01_introduction_to_java.thuc_hanh;
+
+public class KhaiBaoSuDungBien {
     public static void main(String[] args) {
         int i = 10; // khai báo biến i là kiểu int có giá trị là 10
         float f = 20.5f; // Khai báo biến f có kiểu là float có giá trị là 20.5
