@@ -2,7 +2,7 @@ package ss02_vong_lap_trong_java.bai_tap;
 
 import java.util.Scanner;
 
-public class HienThi20SoNguyenToDauTien {
+public class ShowFirst20Primes {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập số lượng số nguyên tố cần in ra: ");
