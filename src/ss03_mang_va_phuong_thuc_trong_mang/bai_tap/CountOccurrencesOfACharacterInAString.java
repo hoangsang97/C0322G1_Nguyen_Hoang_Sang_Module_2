@@ -2,7 +2,7 @@ package ss03_mang_va_phuong_thuc_trong_mang.bai_tap;
 
 import java.util.Scanner;
 
-public class DemSoLanXuatHienCuaKyTuTrongChuoi {
+public class CountOccurrencesOfACharacterInAString {
     public static void main(String[] args) {
         String[] str = {"a", "b", "c", "d", "a", "a", "a", "b"};
         Scanner sc = new Scanner(System.in);

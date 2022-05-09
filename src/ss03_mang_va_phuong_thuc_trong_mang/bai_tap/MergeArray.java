@@ -3,7 +3,7 @@ package ss03_mang_va_phuong_thuc_trong_mang.bai_tap;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class GopMang {
+public class MergeArray {
     public static void main(String[] args) {
         int size;
         int[] array1;

@@ -2,7 +2,7 @@ package ss03_mang_va_phuong_thuc_trong_mang.bai_tap;
 
 import java.util.Scanner;
 
-public class TinhTongCacSoODuongCheoChinhCuaMaTranVuong {
+public class SumTheNumbersInASpecifiedColumn {
     public static void main(String[] args) {
         int soDong;
         int soCot;
@@ -29,11 +29,13 @@ public class TinhTongCacSoODuongCheoChinhCuaMaTranVuong {
             System.out.println("\n");
         }
 
+        System.out.println("Nhập số cột muốn tính tổng: ");
+        int numCot = sc.nextInt();
         int total = 0;
         for (int i = 0; i < array.length; i++) {
-            total = total + array[i][i];
+            total = total + array[i][numCot];
         }
 
-        System.out.println("Tổng các số ở đường chéo chính của ma trận vuông là: " + total);
+        System.out.println("Tổng của cột " + numCot + " là: " + total);
     }
 }

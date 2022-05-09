@@ -1,8 +1,9 @@
 package ss03_mang_va_phuong_thuc_trong_mang.bai_tap;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class TinhTongCacSoOMotCotXacDinh {
+public class FindTheLargestElementInATwoDimensionalArray {
     public static void main(String[] args) {
         int soDong;
         int soCot;
@@ -29,13 +30,17 @@ public class TinhTongCacSoOMotCotXacDinh {
             System.out.println("\n");
         }
 
-        System.out.println("Nhập số cột muốn tính tổng: ");
-        int numCot = sc.nextInt();
-        int total = 0;
+
+
+        int max = array[0][0];
         for (int i = 0; i < array.length; i++) {
-            total = total + array[i][numCot];
+            for (int j = 0; j < array[i].length; j++) {
+                if (max < array[i][j]){
+                    max = array[i][j];
+                }
+            }
         }
 
-        System.out.println("Tổng của cột " + numCot + " là: " + total);
+        System.out.println("Phần tử lớn nhất là: " + max);
     }
 }

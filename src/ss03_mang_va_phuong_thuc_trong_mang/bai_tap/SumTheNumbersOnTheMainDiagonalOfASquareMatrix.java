@@ -1,9 +1,8 @@
 package ss03_mang_va_phuong_thuc_trong_mang.bai_tap;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class TimPhanTuLonNhatMangHaiChieu {
+public class SumTheNumbersOnTheMainDiagonalOfASquareMatrix {
     public static void main(String[] args) {
         int soDong;
         int soCot;
@@ -30,17 +29,11 @@ public class TimPhanTuLonNhatMangHaiChieu {
             System.out.println("\n");
         }
 
-
-
-        int max = array[0][0];
+        int total = 0;
         for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                if (max < array[i][j]){
-                    max = array[i][j];
-                }
-            }
+            total = total + array[i][i];
         }
 
-        System.out.println("Phần tử lớn nhất là: " + max);
+        System.out.println("Tổng các số ở đường chéo chính của ma trận vuông là: " + total);
     }
 }

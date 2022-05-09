@@ -2,7 +2,7 @@ package ss03_mang_va_phuong_thuc_trong_mang.bai_tap;
 
 import java.util.Scanner;
 
-public class ThemPhanTuVaoMang {
+public class AddElementToArray {
     public static void main(String[] args) {
         int[] array = new int[4];
         Scanner sc = new Scanner(System.in);
