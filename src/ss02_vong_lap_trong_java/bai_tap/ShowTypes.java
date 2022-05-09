@@ -27,7 +27,9 @@ public class ShowTypes {
                     System.out.println("");
                 }
             } else if (number == 2) {
-                for (int i = 0; i < 6; i++) {
+                System.out.print("Enter height: " + "\t");
+                int height = sc.nextInt();
+                for (int i = 0; i <= height; i++) {
                     for (int j = 0; j < i; j++) {
                         System.out.print(" * ");
                     }
@@ -35,15 +37,15 @@ public class ShowTypes {
                 }
 
                 System.out.println("");
-                for (int i = 0; i < 6; i++) {
-                    for (int j = 5; j > i; j--) {
+                for (int i = 0; i < height; i++) {
+                    for (int j = height; j > i; j--) {
                         System.out.print(" * ");
                     }
                     System.out.println("");
                 }
 
-                for (int i = 1; i < 6; i++) {
-                    for (int j = 0; j < 5 - i; j++) {
+                for (int i = 1; i <= height; i++) {
+                    for (int j = 0; j <= height - i; j++) {
                         System.out.print("\t");
                     }
                     for (int j = 0; j < i; j++) {
@@ -53,19 +55,21 @@ public class ShowTypes {
                 }
 
                 System.out.println("");
-                for (int i = 0; i < 6; i++) {
+                for (int i = 0; i < height; i++) {
                     for (int j = 0; j < i; j++) {
                         System.out.print("\t");
                     }
-                    for (int j = 5; j > i; j--) {
+                    for (int j = height; j > i; j--) {
                         System.out.print("*   ");
                     }
                     System.out.println("");
                 }
 
             } else if (number == 3) {
-                for (int i = 1; i <= 5; i++) {
-                    for (int j = i; j <= 5; j++) {
+                System.out.print("Enter height: " + "\t");
+                int height = sc.nextInt();
+                for (int i = 1; i <= height; i++) {
+                    for (int j = i; j <= height; j++) {
                         System.out.print("\t");
                     }
                     for (int j = 1; j < i; j++) {
