@@ -1,12 +1,6 @@
-package ss04_lop_doi_tuong_trong_java.bai_tap;
+package ss04_lop_doi_tuong_trong_java.bai_tap.build_the_fan_class;
 
 public class BuildTheFanClass {
-    public static void main(String[] args) {
-        Fan fan1 =new Fan(3,true,"green",10);
-        Fan fan2 =new Fan(2,false,"black",5);
-        System.out.println(fan1.toString());
-        System.out.println(fan2.toString());
-    }
 
     public static class Fan {
         final double SLOW = 1;
@@ -75,7 +69,7 @@ public class BuildTheFanClass {
                 state += ("Fan is on\n");
                 state += ("Speed: " + this.speed + "\n");
             } else {
-                state += ("Fan is off");
+                state += ("Fan is off" + "\n");
             }
             state += ("Color: " + this.color + "\n");
             state += ("Radius: " + this.radius + "\n");
