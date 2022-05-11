@@ -5,6 +5,9 @@ public class Circle {
     private String color = "red";
     private final double PI = 3.14;
 
+    public Circle() {
+    }
+
     public double getPI() {
         return PI;
     }

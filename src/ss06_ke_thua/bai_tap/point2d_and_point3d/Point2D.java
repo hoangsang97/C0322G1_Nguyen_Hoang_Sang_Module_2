@@ -35,9 +35,9 @@ public class Point2D {
         this.y = y;
     }
 
-    public String getXY() {
+    public float[] getXY() {
       float[] arr = {this.x, this.y};
-      return Arrays.toString(arr);
+      return arr;
     }
 
     @Override
