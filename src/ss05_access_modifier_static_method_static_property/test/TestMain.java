@@ -15,6 +15,7 @@ public class TestMain {
         Demo.school = "C0322";
         System.out.println(demo1);
 
-        Demo.B o = new Demo.B();
+        Demo.B o = new Demo.B(1);
+        System.out.println(o);
     }
 }

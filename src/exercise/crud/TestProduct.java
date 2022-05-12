@@ -64,8 +64,7 @@ public class TestProduct {
         for (int i = 0; i < productsList.length; i++) {
             if (productsList[i] != null) {
                 if (productsList[i].getId() == inputSearch) {
-                    productsList[i] = productsList[i + 1];
-                    for (int j = i + 1; j < productsList.length && productsList[j + 1] != null; j++) {
+                    for (int j = i; j < productsList.length && productsList[j] != null; j++) {
                         productsList[j] = productsList[j + 1];
                     }
                     System.out.println("Xoá thành công");

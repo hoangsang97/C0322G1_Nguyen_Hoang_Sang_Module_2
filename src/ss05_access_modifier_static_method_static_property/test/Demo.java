@@ -7,7 +7,27 @@ public class Demo {
     public static String school;
     public static int count;
 
-    static public class B {
+    public static class B {
+        private int Point;
+
+        public B(int point) {
+            Point = point;
+        }
+
+        public int getPoint() {
+            return Point;
+        }
+
+        public void setPoint(int point) {
+            Point = point;
+        }
+
+        @Override
+        public String toString() {
+            return "B{" +
+                    "Point=" + Point +
+                    '}';
+        }
     }
 
     static {
