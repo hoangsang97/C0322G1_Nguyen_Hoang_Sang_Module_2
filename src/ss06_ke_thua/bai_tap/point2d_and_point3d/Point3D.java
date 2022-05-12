@@ -1,8 +1,6 @@
 package ss06_ke_thua.bai_tap.point2d_and_point3d;
 
-import java.util.Arrays;
-
-public class Point3D extends Point2D{
+public class Point3D extends Point2D {
     private float z;
 
     public Point3D() {
@@ -21,8 +19,14 @@ public class Point3D extends Point2D{
         this.z = z;
     }
 
-    public String getXYZ() {
-        float[] arr = {this.getX(), this.getY(), this.z};
-        return Arrays.toString(arr);
+    public void setXYZ(float x, float y, float z) {
+        super.setX(x);
+        super.setY(y);
+        this.z = z;
+    }
+
+    public float[] getXYZ() {
+        float[] arr = {super.getX(), super.getY(), this.z};
+        return arr;
     }
 }
