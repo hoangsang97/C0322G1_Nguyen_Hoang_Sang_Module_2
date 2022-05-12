@@ -10,8 +10,8 @@ public class CountOccurrencesOfACharacterInAString {
         String inputStr = sc.nextLine();
 
         int count = 0;
-        for (int i = 0; i < str.length; i++) {
-            if (str[i].equals(inputStr)) {
+        for (String s : str) {
+            if (s.equals(inputStr)) {
                 count++;
             }
         }

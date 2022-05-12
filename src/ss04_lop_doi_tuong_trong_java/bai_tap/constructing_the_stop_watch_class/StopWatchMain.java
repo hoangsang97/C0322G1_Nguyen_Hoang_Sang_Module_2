@@ -2,7 +2,7 @@ package ss04_lop_doi_tuong_trong_java.bai_tap.constructing_the_stop_watch_class;
 
 import java.time.LocalTime;
 
-public class MainConstructingTheStopWatchClass {
+public class StopWatchMain {
     public static int[] selectionSort(int... arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = i + 1; j < arr.length; j++) {
@@ -24,10 +24,10 @@ public class MainConstructingTheStopWatchClass {
         LocalTime start = LocalTime.now();
         arr = selectionSort(arr);
         LocalTime end = LocalTime.now();
-        ConstructingTheStopWatchClass.StopWatch sw = new ConstructingTheStopWatchClass.StopWatch(start, end);
+        StopWatch sw = new StopWatch(start, end);
         System.out.println("Time: " + sw.getElapsedTime());
         for (int x : arr) {
-            System.out.println(x);
+            System.out.print(x + " ");
         }
     }
 }

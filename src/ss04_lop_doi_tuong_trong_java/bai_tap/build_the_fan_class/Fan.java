@@ -1,8 +1,7 @@
 package ss04_lop_doi_tuong_trong_java.bai_tap.build_the_fan_class;
 
-public class BuildTheFanClass {
+public class Fan {
 
-    public static class Fan {
         final double SLOW = 1;
         final double MEDIUM = 2;
         final double FAST = 3;
@@ -61,8 +60,7 @@ public class BuildTheFanClass {
             this.color = color;
             this.on = on;
         }
-
-        @Override
+    @Override
         public String toString() {
             String state = "";
             if (this.isOn()) {
@@ -76,4 +74,3 @@ public class BuildTheFanClass {
             return state;
         }
     }
-}

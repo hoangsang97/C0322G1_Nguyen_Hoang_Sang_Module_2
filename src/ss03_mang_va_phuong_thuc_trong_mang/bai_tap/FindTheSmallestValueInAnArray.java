@@ -16,8 +16,8 @@ public class FindTheSmallestValueInAnArray {
             array[i] = sc.nextInt();
         }
         System.out.print("Hiển thị mảng: " + "\t");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + "\t");
+        for (int j : array) {
+            System.out.print(j + "\t");
         }
 
         System.out.println("\n");

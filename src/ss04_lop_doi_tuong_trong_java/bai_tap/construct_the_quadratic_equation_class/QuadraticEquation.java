@@ -2,8 +2,8 @@ package ss04_lop_doi_tuong_trong_java.bai_tap.construct_the_quadratic_equation_c
 
 import java.util.Scanner;
 
-public class ConstructTheQuadraticEquationClass {
-    public static class QuadraticEquation {
+public class QuadraticEquation {
+
         double a, b, c;
 
         public QuadraticEquation (double a, double b, double c) {
@@ -27,5 +27,5 @@ public class ConstructTheQuadraticEquationClass {
         public double getRoot3() {
             return -b / (2 * a);
         }
-    }
+
 }

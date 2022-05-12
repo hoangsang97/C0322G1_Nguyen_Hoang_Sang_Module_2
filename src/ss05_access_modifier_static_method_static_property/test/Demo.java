@@ -7,6 +7,9 @@ public class Demo {
     public static String school;
     public static int count;
 
+    static public class B {
+    }
+
     static {
         school = "CODEGYM";
         count = 0;

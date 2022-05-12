@@ -24,8 +24,8 @@ public class RemoveElementFromArray {
         }
 
         System.out.print("Property list: ");
-        for (int j = 0; j < array.length; j++) {
-            System.out.print(array[j] + "\t");
+        for (int value : array) {
+            System.out.print(value + "\t");
         }
 
         System.out.print("\n" + "Enter the number you want to delete: ");
@@ -44,8 +44,8 @@ public class RemoveElementFromArray {
         }
 
         System.out.print("New array: ");
-        for (int j = 0; j < array.length; j++) {
-            System.out.print(array[j] + "\t");
+        for (int k : array) {
+            System.out.print(k + "\t");
         }
     }
 }

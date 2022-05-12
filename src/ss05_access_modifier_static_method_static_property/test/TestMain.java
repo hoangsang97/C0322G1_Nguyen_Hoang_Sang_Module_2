@@ -14,5 +14,7 @@ public class TestMain {
         System.out.println(demo);
         Demo.school = "C0322";
         System.out.println(demo1);
+
+        Demo.B o = new Demo.B();
     }
 }

@@ -15,8 +15,8 @@ public class AddElementToArray {
         }
 
         System.out.print("Property list: ");
-        for (int j = 0; j < array.length; j++) {
-            System.out.print(array[j] + "\t");
+        for (int value : array) {
+            System.out.print(value + "\t");
         }
 
         System.out.print("\n" + "Enter the element you want to add: ");
@@ -26,16 +26,14 @@ public class AddElementToArray {
 
         for (int j = 0; j < array.length; j++) {
             if (indexAdd == j && inputAdd != array[array.length - 1]) {
-                for (int k = array.length - 1; k > j; k--) {
-                    array[k] = array[k - 1];
-                }
+                System.arraycopy(array, j, array, j + 1, array.length - 1 - j);
                 array[j] = inputAdd;
             }
         }
 
         System.out.print("New array: ");
-        for (int j = 0; j < array.length; j++) {
-            System.out.print(array[j] + "\t");
+        for (int k : array) {
+            System.out.print(k + "\t");
         }
     }
 }

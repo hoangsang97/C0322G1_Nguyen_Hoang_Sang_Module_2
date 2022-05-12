@@ -1,18 +1,14 @@
 package ss03_mang_va_phuong_thuc_trong_mang.bai_tap;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class FindTheLargestElementInATwoDimensionalArray {
     public static void main(String[] args) {
-        int soDong;
-        int soCot;
-
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập số dòng: ");
-        soDong = sc.nextInt();
+        int soDong = sc.nextInt();
         System.out.print("Nhập số cột: ");
-        soCot = sc.nextInt();
+        int soCot = sc.nextInt();
 
         int[][] array = new int[soDong][soCot];
         for (int i = 0; i < array.length; i++) {
@@ -23,9 +19,9 @@ public class FindTheLargestElementInATwoDimensionalArray {
         }
 
         System.out.println("Hiển thị mảng: ");
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                System.out.print(array[i][j] + "\t");
+        for (int[] ints : array) {
+            for (int anInt : ints) {
+                System.out.print(anInt + "\t");
             }
             System.out.println("\n");
         }
@@ -33,10 +29,10 @@ public class FindTheLargestElementInATwoDimensionalArray {
 
 
         int max = array[0][0];
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                if (max < array[i][j]){
-                    max = array[i][j];
+        for (int[] ints : array) {
+            for (int anInt : ints) {
+                if (max < anInt) {
+                    max = anInt;
                 }
             }
         }
