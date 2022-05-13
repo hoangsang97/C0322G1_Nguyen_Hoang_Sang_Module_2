@@ -1,6 +1,6 @@
 package ss06_ke_thua.bai_tap.circle_class_and_cylinder_class;
 
-public class Cylinder extends Circle{
+public class Cylinder extends Circle {
     private double height = 10;
 
     public double getHeight() {
@@ -12,7 +12,7 @@ public class Cylinder extends Circle{
     }
 
     public double getVolume() {
-        return this.getPI() * this.getRadius() * this.getHeight();
+        return Math.PI * this.getRadius() * this.getHeight();
     }
 
     @Override

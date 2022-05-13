@@ -1,7 +1,6 @@
-package ss07_abstract_class_and_interface.exercise;
+package ss07_abstract_class_and_interface.exercise.implement_interface_colorable;
 
-
-public class Rectangle extends Circle {
+public class Rectangle extends Shape{
     private double width = 1.0;
     private double length = 1.0;
 

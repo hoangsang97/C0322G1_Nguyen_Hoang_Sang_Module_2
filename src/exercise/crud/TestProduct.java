@@ -3,7 +3,7 @@ package exercise.crud;
 import java.util.Scanner;
 
 public class TestProduct {
-    static Scanner scanner = new Scanner(System.in);
+    public static Scanner scanner = new Scanner(System.in);
     public static Product[] productsList = new Product[100];
 
     public static int count;

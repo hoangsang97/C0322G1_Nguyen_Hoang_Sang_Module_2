@@ -3,7 +3,6 @@ package ss05_access_modifier_static_method_static_property.bai_tap.access_modifi
 public class Circle {
     private double radius = 1.0;
     private String color = "red";
-    private final double PI = 3.14;
 
     public Circle(){
 
@@ -18,6 +17,6 @@ public class Circle {
     }
 
     public double getArea() {
-        return Math.pow(this.radius, 2) * PI;
+        return Math.pow(this.radius, 2) * Math.PI;
     }
 }

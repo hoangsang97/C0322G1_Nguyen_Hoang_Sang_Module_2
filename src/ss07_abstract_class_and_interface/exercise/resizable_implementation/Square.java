@@ -1,8 +1,6 @@
-package ss07_abstract_class_and_interface.exercise;
+package ss07_abstract_class_and_interface.exercise.resizable_implementation;
 
-import ss06_ke_thua.thuc_hanh.system_of_geometric_objects.Rectangle;
-
-public class Square extends Rectangle {
+public class Square extends Rectangle implements Resizeable  {
     public Square() {
     }
 
@@ -39,5 +37,11 @@ public class Square extends Rectangle {
                 + getSide()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+
+    @Override
+    public void resize(double percent) {
+        setSide(getSide() * percent / 100);
     }
 }

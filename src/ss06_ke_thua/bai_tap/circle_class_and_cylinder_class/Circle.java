@@ -3,13 +3,8 @@ package ss06_ke_thua.bai_tap.circle_class_and_cylinder_class;
 public class Circle {
     private double radius = 5;
     private String color = "red";
-    private final double PI = 3.14;
 
     public Circle() {
-    }
-
-    public double getPI() {
-        return PI;
     }
 
     public double getRadius() {
@@ -29,7 +24,7 @@ public class Circle {
     }
 
     public double getArea() {
-        return Math.pow(this.getRadius(), 2) * this.getPI();
+        return Math.pow(this.getRadius(), 2) * Math.PI;
     }
 
 
@@ -38,7 +33,7 @@ public class Circle {
         return "Circle{" +
                 "radius=" + radius +
                 ", color='" + color + '\'' +
-                ", PI=" + PI +
+                ", PI=" + Math.PI +
                 '}';
     }
 }

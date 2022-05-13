@@ -1,12 +1,10 @@
 package ss06_ke_thua.bai_tap.point2d_and_point3d;
 
-import java.util.Arrays;
-
 public class Point2D {
     private float x;
     private float y;
 
-    public  Point2D() {
+    public Point2D() {
     }
 
     public Point2D(float x, float y) {
@@ -36,8 +34,8 @@ public class Point2D {
     }
 
     public float[] getXY() {
-      float[] arr = {this.x, this.y};
-      return arr;
+        float[] arr = {this.x, this.y};
+        return arr;
     }
 
     @Override
