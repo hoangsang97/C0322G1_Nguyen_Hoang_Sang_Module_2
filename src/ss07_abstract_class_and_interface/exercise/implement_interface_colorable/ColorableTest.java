@@ -7,11 +7,12 @@ public class ColorableTest {
         shapeList[1] = new Rectangle(5, 10);
         shapeList[2] = new Square(4);
 
-        for (int i = 0; i < shapeList.length; i++) {
-            if (shapeList[i] != null && shapeList[i] instanceof Colorable) {
-                System.out.println("Diện tích của hình: " + shapeList[i].getArea() + " " + ((Colorable) shapeList[i]).howToColor());
-            } else if (shapeList[i] != null) {
-                System.out.println("Diện tích của hình: " + shapeList[i].getArea());
+        for (Shape shape : shapeList) {
+            if (shape instanceof Colorable) {
+                System.out.print("Diện tích của hình: " + shape.getArea() + " ");
+                ((Colorable) shape).howToColor();
+            } else if (shape != null) {
+                System.out.println("Diện tích của hình: " + shape.getArea());
             }
         }
     }

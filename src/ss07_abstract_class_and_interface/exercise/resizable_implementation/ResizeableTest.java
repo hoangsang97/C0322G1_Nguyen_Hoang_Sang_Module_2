@@ -7,8 +7,19 @@ public class ResizeableTest {
         shapeList[1] = new Rectangle(5, 10);
         shapeList[2] = new Square(5);
 
-        for (int i = 0; i < shapeList.length; i++) {
+        System.out.println("trước khi tăng kích thước: ");
+        for (Shape shape : shapeList) {
+            if (shape != null) {
+                System.out.println("Diện tích của hình: " + shape.getArea());
+                ((Resizeable) shape).resize(Math.random() * 100);
+            }
+        }
 
+        System.out.println("sau khi tăng kích thước: ");
+        for (Shape shape : shapeList) {
+            if (shape != null) {
+                System.out.println("Diện tích của hình: " + shape.getArea());
+            }
         }
     }
 }

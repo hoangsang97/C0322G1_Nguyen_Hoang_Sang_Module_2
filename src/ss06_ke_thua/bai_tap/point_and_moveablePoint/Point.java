@@ -6,7 +6,7 @@ public class Point {
     private float x = 0.0f;
     private float y = 0.0f;
 
-    public Point () {
+    public Point() {
     }
 
     public Point(float x, float y) {

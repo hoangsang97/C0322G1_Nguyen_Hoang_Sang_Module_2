@@ -1,5 +1,7 @@
 package ss06_ke_thua.bai_tap.point_and_moveablePoint;
 
+import java.util.Arrays;
+
 public class MovablePoint extends Point {
     private float xSpeed = 0.0f;
     private float ySpeed = 0.0f;
@@ -51,11 +53,11 @@ public class MovablePoint extends Point {
 
     @Override
     public String toString() {
-        return "MovablePoint{" +
-                "x= " + this.getX() +
-                ", y= " + this.getX() +
-                ", xSpeed=" + xSpeed +
-                ", ySpeed=" + ySpeed +
+        return "MovablePoint{" + super.toString() +
+                ", Speed" + Arrays.toString(this.getSpeed()) +
+                " =" +
+                " xSpeed=" + this.xSpeed +
+                ", ySpeed=" + this.ySpeed +
                 '}';
     }
 }
