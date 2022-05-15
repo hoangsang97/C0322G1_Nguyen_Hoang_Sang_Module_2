@@ -1,6 +1,6 @@
-package ss08_clean_code_and_refactoring.practice.renaming_variables_and_separating_constants;
+package ss08_clean_code_and_refactoring.practice.refactoring_renaming_variables_and_separating_constants;
 
-public class SeparatingConstants {
+public class Calculator {
     public static final char ADDITION = '+';
     public static final char SUBTRACTION = '-';
     public static final char MULTIPLICATION = '*';

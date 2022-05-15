@@ -1,6 +1,6 @@
-package ss08_clean_code_and_refactoring.practice.split_variable;
+package ss08_clean_code_and_refactoring.practice.refactoring_split_variable;
 
-public class SplitVariable {
+public class FizzBuzz {
     public static String fizzBuzz(int number){
         boolean isFizz = number % 3 == 0;
         boolean isBuzz = number % 5 == 0;
