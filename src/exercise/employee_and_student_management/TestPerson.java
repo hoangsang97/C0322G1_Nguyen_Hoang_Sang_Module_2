@@ -70,39 +70,58 @@ public class TestPerson {
 
     public static void searchPerson() {
         System.out.println("Nhập vào tên muốn tìm: ");
+        int tempCount = 0;
         String inputName = sc.nextLine();
 
         for (Person person : personList) {
             if (person != null && person.getName().contains(inputName)) {
                 System.out.println(person);
+                tempCount++;
             }
+        }
+
+        if (tempCount == 0) {
+            System.out.println("Không tìm thấy tên");
         }
     }
 
     public static void searchPersonTeacher() {
         System.out.println("Nhập vào tên muốn tìm: ");
+        int tempCount = 0;
         String inputName = sc.nextLine();
 
         for (Person person : personList) {
             if (person instanceof Teacher && person.getName().contains(inputName)) {
                 System.out.println(person);
+                tempCount++;
             }
+        }
+
+        if (tempCount == 0) {
+            System.out.println("Không tìm thấy tên");
         }
     }
 
     public static void searchPersonStudent() {
         System.out.println("Nhập vào tên muốn tìm: ");
+        int tempCount = 0;
         String inputName = sc.nextLine();
 
         for (Person person : personList) {
             if (person instanceof Student && person.getName().contains(inputName)) {
                 System.out.println(person);
+                tempCount++;
             }
+        }
+
+        if (tempCount == 0) {
+            System.out.println("Không tìm thấy tên");
         }
     }
 
     public static void updatePersonTeacher() {
         System.out.println("Nhập id teacher bạn muốn sửa: ");
+        int tempCount = 0;
         int inputId = Integer.parseInt(sc.nextLine());
 
         for (int i = 0; i < personList.length; i++) {
@@ -117,13 +136,19 @@ public class TestPerson {
                 double salary = Double.parseDouble(sc.nextLine());
 
                 personList[i] = new Teacher(inputId, name, age, gender, salary);
+                tempCount++;
                 System.out.println("successful fix");
             }
+        }
+
+        if (tempCount == 0) {
+            System.out.println("Không tìm thấy id");
         }
     }
 
     public static void updatePersonStudent() {
         System.out.println("Nhập id student bạn muốn sửa: ");
+        int tempCount = 0;
         int inputId = Integer.parseInt(sc.nextLine());
 
         for (int i = 0; i < personList.length; i++) {
@@ -138,37 +163,54 @@ public class TestPerson {
                 double point = Double.parseDouble(sc.nextLine());
 
                 personList[i] = new Student(inputId, name, age, gender, point);
+                tempCount++;
                 System.out.println("successful fix");
             }
+        }
+
+        if (tempCount == 0) {
+            System.out.println("Không tìm thấy id");
         }
     }
 
     public static void deletePersonTeacher() {
         System.out.println("Nhập id teacher muốn xóa: ");
+        int tempCount = 0;
         int inputIdRemove = Integer.parseInt(sc.nextLine());
 
         for (int i = 0; i < personList.length; i++) {
             if (personList[i] instanceof Teacher && personList[i].getId() == inputIdRemove) {
                 for (int j = i; j < personList.length && personList[j] != null; j++) {
                     personList[j] = personList[j + 1];
+                    tempCount++;
                 }
             }
         }
-        System.out.println("successful delete");
+        if (tempCount == 0) {
+            System.out.println("Không tìm thấy id");
+        } else {
+            System.out.println("successful delete");
+        }
     }
 
     public static void deletePersonStudent() {
         System.out.println("Nhập id student muốn xóa: ");
+        int tempCount = 0;
         int inputIdRemove = Integer.parseInt(sc.nextLine());
 
         for (int i = 0; i < personList.length; i++) {
             if (personList[i] instanceof Student && personList[i].getId() == inputIdRemove) {
                 for (int j = i; j < personList.length && personList[j] != null; j++) {
                     personList[j] = personList[j + 1];
+                    tempCount++;
                 }
             }
         }
-        System.out.println("successful delete");
+        if (tempCount == 0) {
+            System.out.println("Không tìm thấy id");
+        } else {
+            System.out.println("successful delete");
+        }
     }
 
     public static void main(String[] args) {
@@ -193,16 +235,16 @@ public class TestPerson {
                     if (inputDisplay == 1) {
                         System.out.println("Display Person");
                         displayPerson();
-                        break;
                     } else if (inputDisplay == 2) {
                         System.out.println("Display Person Teacher");
                         displayPersonTeacher();
-                        break;
-                    } else {
+                    } else if (inputDisplay == 3){
                         System.out.println("Display Person Student");
                         displayPersonStudent();
-                        break;
+                    } else {
+                        System.out.println("Số không hợp lệ");
                     }
+                    break;
                 case 2:
                     System.out.println("Add new person");
                     System.out.println("-----------Menu Add new person-----------");
@@ -213,9 +255,11 @@ public class TestPerson {
                     if (inputAdd == 1) {
                         System.out.println("Add new Teacher");
                         addNewPersonTeacher();
-                    } else {
+                    } else if (inputAdd == 2) {
                         System.out.println("Add new Student");
                         addNewPersonStudent();
+                    } else {
+                        System.out.println("Số không hợp lệ");
                     }
                     break;
                 case 3:
@@ -232,9 +276,11 @@ public class TestPerson {
                     } else if (inputSearch == 2) {
                         System.out.println("Search Teacher");
                         searchPersonTeacher();
-                    } else {
+                    } else if (inputSearch == 3){
                         System.out.println("Search Student");
                         searchPersonStudent();
+                    } else {
+                        System.out.println("Số không hợp lệ");
                     }
                     break;
                 case 4:
@@ -247,9 +293,11 @@ public class TestPerson {
                     if (inputUpdate == 1) {
                         System.out.println("Update teacher");
                         updatePersonTeacher();
-                    } else {
+                    } else if (inputUpdate == 2) {
                         System.out.println("Update student");
                         updatePersonStudent();
+                    } else {
+                        System.out.println("Số không hợp lệ");
                     }
                     break;
                 case 5:
@@ -261,9 +309,11 @@ public class TestPerson {
                     if (inputDelete == 1) {
                         System.out.println("Delete Teacher");
                         deletePersonTeacher();
-                    } else {
+                    } else if (inputDelete == 2){
                         System.out.println("Delete Student");
                         deletePersonStudent();
+                    } else {
+                        System.out.println("Số không hợp lệ");
                     }
                     break;
                 case 6:
