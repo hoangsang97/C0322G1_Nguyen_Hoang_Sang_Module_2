@@ -53,11 +53,12 @@ public class MovablePoint extends Point {
 
     @Override
     public String toString() {
-        return "MovablePoint{" + super.toString() +
-                ", Speed" + Arrays.toString(this.getSpeed()) +
-                " =" +
-                " xSpeed=" + this.xSpeed +
-                ", ySpeed=" + this.ySpeed +
-                '}';
+        return super.toString() + "," + xSpeed + " = " + String.format("%f, %f", xSpeed, ySpeed);
+//        return "MovablePoint{" + super.toString() +
+//                ", Speed" + Arrays.toString(this.getSpeed()) +
+//                " =" +
+//                " xSpeed=" + this.xSpeed +
+//                ", ySpeed=" + this.ySpeed +
+//                '}';
     }
 }

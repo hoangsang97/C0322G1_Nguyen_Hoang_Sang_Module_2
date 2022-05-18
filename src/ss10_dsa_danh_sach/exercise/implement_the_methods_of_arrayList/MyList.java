@@ -34,6 +34,7 @@ public class MyList<E> {
         } else if (elements.length == index + 1) {
             ensureCapacity(1);
         }
+
         if (elements[index] == null) {
             size++;
             elements[index] = e;

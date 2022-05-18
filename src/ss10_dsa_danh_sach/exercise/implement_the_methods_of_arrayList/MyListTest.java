@@ -20,7 +20,7 @@ public class MyListTest {
 
         @Override
         public boolean equals(Object obj) {
-//            Person person = (Person) obj;
+            Person person = (Person) obj;
             return this.name.equals(((MyListTest.Person) obj).name)
                     && this.Age == ((MyListTest.Person) obj).Age;
         }
