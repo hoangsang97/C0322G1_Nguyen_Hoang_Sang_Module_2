@@ -46,7 +46,6 @@ public class MyList<E> {
             elements[index] = e;
             size++;
         }
-
     }
 
     public E remove(int index) {

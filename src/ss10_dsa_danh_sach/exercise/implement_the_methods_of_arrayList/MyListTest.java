@@ -32,9 +32,9 @@ public class MyListTest {
         myList.add(new MyListTest.Person("Nguyễn Văn A ", 30));
         myList.add(new MyListTest.Person("Nguyễn Văn B ", 30));
         myList.add(new MyListTest.Person("Nguyễn Văn C ", 30));
-        myList.add(new MyListTest.Person("Nguyễn Văn D ", 30), 1);
+        myList.add(new MyListTest.Person("Nguyễn Văn D ", 30), 2);
         MyList<MyListTest.Person> list2 = myList.clone();
-        int index = list2.indexOf(new MyListTest.Person("Nguyễn Văn C ", 30));
+        int index = list2.indexOf(new MyListTest.Person("Nguyễn Văn C ", 39));
         System.out.println("index = " + index);
         for (int i = 0; i < list2.size(); i++) {
             System.out.println(myList.get(i).toString());
