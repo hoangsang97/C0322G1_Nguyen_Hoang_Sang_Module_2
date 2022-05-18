@@ -1,10 +1,11 @@
 package ss11_dsa_stack_queue.exercise.invert_element_stack;
 
 import java.util.Arrays;
+import java.util.Stack;
 
-public class Stack<N> {
+public class StackTest {
     public static void main(String[] args) {
-        java.util.Stack<Number> numberStack = new java.util.Stack<>();
+        Stack<Number> numberStack = new Stack<>();
         numberStack.push(1);
         numberStack.push(2);
         numberStack.push(3);

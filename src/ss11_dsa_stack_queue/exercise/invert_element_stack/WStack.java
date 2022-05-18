@@ -5,23 +5,26 @@ import java.util.Stack;
 
 public class WStack {
     public static void main(String[] args) {
-        Stack<String> stringStack = new Stack<>();
-        stringStack.push("a");
-        stringStack.push("b");
-        stringStack.push("c");
-        stringStack.push("d");
-        stringStack.push("e");
+        Stack<String> wStack = new Stack<>();
 
-        System.out.println("Mảng trước khi đảo ngược: ");
-        for (String item : stringStack) {
-            System.out.print(item + "\t");
+        String stringWord = "Nguyễn Hoàng Sang";
+
+        String[] mWord = stringWord.split(" ");
+        for (String item : mWord) {
+            wStack.push(item);
         }
-        System.out.println();
-        System.out.println("Mảng sau khi đảo ngược: ");
-        String[] string2Stack = new String[5];
-        for (int i = 0; i < stringStack.toArray().length; i++) {
-            string2Stack[i] = stringStack.get(stringStack.toArray().length - (i + 1));
+
+        System.out.println("chuỗi trước khi đảo ngược: ");
+        System.out.println(stringWord);
+
+
+        for (int i = 0; i < mWord.length; i++) {
+            mWord[i] = wStack.pop();
         }
-        System.out.println(Arrays.toString(string2Stack));
+
+        System.out.println("chuỗi sau khi đảo ngược: ");
+        for (int i = 0; i < mWord.length; i++) {
+            System.out.print(mWord[i] + " ");
+        }
     }
 }

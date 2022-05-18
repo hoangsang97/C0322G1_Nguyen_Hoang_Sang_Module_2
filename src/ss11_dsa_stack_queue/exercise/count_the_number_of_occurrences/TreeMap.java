@@ -1,29 +1,34 @@
 package ss11_dsa_stack_queue.exercise.count_the_number_of_occurrences;
 
-import java.util.Stack;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 
-public class TreeMap<K, V> {
-//    private K key;
-//    private V value;
-//
-//    public static void main(String[] args) {
-//        Stack<String> stringStack = new Stack<>();
-//        stringStack.push("a");
-//        stringStack.push("a");
-//        stringStack.push("b");
-//        stringStack.push("b");
-//        stringStack.push("c");
-//        stringStack.push("d");
-//
-//        for (int i = 0; i < stringStack.toArray().length; i++) {
-//            for (int j = i; j < stringStack.toArray().length; j++) {
-//                if (stringStack.get(i).equals(stringStack.get(j))) {
-//                    value++;
-//                    System.out.println(stringStack.get(i) + value);
-//                }
-//            }
-//            value = 1;
-//        }
-//    }
+public class TreeMap {
+    public static void main(String[] args){
+        String str = "hello words hello hello";
+        str = str.replaceAll(",","");
+        String[] arr = str.split(" ");
+        String key="";
+        Integer value;
+        HashMap<String, Integer> map = new HashMap<String, Integer>();
+        for(int i=0;i<arr.length;i++){
+            key = arr[i];
+            if(map.containsKey(key)){
+                value = map.get(key);
+                map.remove(key);
+                map.put(key, value+1);
+            } else{
+                map.put(key, 1);
+            }
+        }
 
+        Set set=map.keySet();
+        Iterator i = set.iterator();
+
+        while(i.hasNext()){
+            key=(String)i.next();
+            System.out.println("Từ '"+key+"' xuất hiện "+map.get(key)+" lần");
+        }
+    }
 }
