@@ -3,10 +3,10 @@ package ss11_dsa_stack_queue.exercise.check_brackets_in_stack_using_expression;
 import java.util.Stack;
 
 public class BStack {
-    public static boolean balancedParenthensies(String s) {
+    public static boolean balancedParenthensies(String str) {
         Stack<Character> stack = new Stack<>();
-        for (int i = 0; i < s.length(); i++) {
-            char Character = s.charAt(i);
+        for (int i = 0; i < str.length(); i++) {
+            char Character = str.charAt(i);
             if (Character == '[' || Character == '(' || Character == '{') {
                 stack.push(Character);
             } else if (Character == ']') {

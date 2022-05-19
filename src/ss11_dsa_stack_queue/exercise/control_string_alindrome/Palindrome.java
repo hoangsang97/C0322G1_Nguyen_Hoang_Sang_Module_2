@@ -1,25 +1,31 @@
 package ss11_dsa_stack_queue.exercise.control_string_alindrome;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Palindrome {
     public static void main(String[] args) {
-        String chuoi;
-        char kyTu;
-        Scanner scanner = new Scanner(System.in);
+        Stack<String> stringStack = new Stack<>();
+        String str = "Able was";
+        String[] arr = str.split("");
+        String strSPush = "";
+        for (int i = 0; i < arr.length; i++) {
+            strSPush = stringStack.push(arr[i]);
+        }
 
-        System.out.println("Nhập vào chuỗi bất kỳ: ");
-        chuoi = scanner.nextLine();
+        for (int i = 0; i < arr.length; i++) {
+             stringStack.pop();
+        }
 
-        for (int i = 0; i < chuoi.length(); i++) {
-            kyTu = chuoi.charAt(chuoi.length() - i - 1);
-            if (chuoi.charAt(i) == kyTu) {
-                System.out.println("Chuỗi này là chuỗi Panlyndrome.");
-                break;
-            } else {
-                System.out.println("Chuỗi này không là chuỗi Panlyndrome.");
-                break;
-            }
+        String strQPoll = "";
+        Queue<String> stringQueue = new LinkedList<>(Arrays.asList(arr));
+        for (int i = 0; i < arr.length; i++) {
+            strQPoll = stringQueue.poll();
+        }
+
+        if (strSPush.equals(strQPoll)) {
+            System.out.println("là chuỗi Palindrome");
+        } else {
+            System.out.println("không phải là chuỗi Palindrome");
         }
     }
 }
