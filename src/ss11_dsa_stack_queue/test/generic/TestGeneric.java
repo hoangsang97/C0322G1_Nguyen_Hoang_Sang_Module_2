@@ -1,0 +1,30 @@
+package ss11_dsa_stack_queue.test.generic;
+
+public class TestGeneric<K, V> {
+    private K key;
+    private V value;
+
+    public TestGeneric() {
+    }
+
+    public TestGeneric(K key, V value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    public K getKey() {
+        return key;
+    }
+
+    public void setKey(K key) {
+        this.key = key;
+    }
+
+    public V getValue() {
+        return value;
+    }
+
+    public void setValue(V value) {
+        this.value = value;
+    }
+}
