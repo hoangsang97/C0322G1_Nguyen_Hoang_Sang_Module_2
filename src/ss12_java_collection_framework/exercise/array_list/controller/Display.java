@@ -1,9 +1,8 @@
-package ss12_java_collection_framework.exercise.controller;
+package ss12_java_collection_framework.exercise.array_list.controller;
 
-import ss12_java_collection_framework.exercise.service.IProductService;
-import ss12_java_collection_framework.exercise.service.ProductService;
+import ss12_java_collection_framework.exercise.array_list.service.IProductService;
+import ss12_java_collection_framework.exercise.array_list.service.ProductService;
 
-import java.util.Collections;
 import java.util.Scanner;
 
 public class Display {

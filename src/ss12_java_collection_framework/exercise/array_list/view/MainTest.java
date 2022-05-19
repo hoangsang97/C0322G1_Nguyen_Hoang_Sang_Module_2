@@ -1,6 +1,6 @@
-package ss12_java_collection_framework.exercise.view;
+package ss12_java_collection_framework.exercise.array_list.view;
 
-import ss12_java_collection_framework.exercise.controller.Display;
+import ss12_java_collection_framework.exercise.array_list.controller.Display;
 
 public class MainTest {
     public static void main(String[] args) {

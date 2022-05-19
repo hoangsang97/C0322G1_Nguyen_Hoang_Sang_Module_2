@@ -1,6 +1,6 @@
-package ss12_java_collection_framework.exercise.utils;
+package ss12_java_collection_framework.exercise.linked_list.utils;
 
-import ss12_java_collection_framework.exercise.model.Product;
+import ss12_java_collection_framework.exercise.linked_list.model.Product;
 
 import java.util.Comparator;
 

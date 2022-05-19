@@ -1,17 +1,13 @@
-package ss12_java_collection_framework.exercise.service;
+package ss12_java_collection_framework.exercise.linked_list.service;
 
-import ss12_java_collection_framework.exercise.model.Product;
-import ss12_java_collection_framework.exercise.utils.ProductPriceAugmentComparator;
-import ss12_java_collection_framework.exercise.utils.ProductPriceReductionAugmentComparator;
+import ss12_java_collection_framework.exercise.linked_list.model.Product;
+import ss12_java_collection_framework.exercise.linked_list.utils.ProductPriceAugmentComparator;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ProductService implements IProductService {
     public static Scanner scanner = new Scanner(System.in);
-    public static List<Product> productList = new ArrayList<>();
+    public static List<Product> productList = new LinkedList<>();
 
 
     static {

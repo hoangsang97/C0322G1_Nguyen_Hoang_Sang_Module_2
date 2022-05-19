@@ -1,4 +1,4 @@
-package ss12_java_collection_framework.exercise.model;
+package ss12_java_collection_framework.exercise.linked_list.model;
 
 public class Product implements Comparable<Product> {
     private int id;
