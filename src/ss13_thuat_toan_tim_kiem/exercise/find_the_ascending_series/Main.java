@@ -6,12 +6,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-
         System.out.print("Nhập chuỗi: ");
         String string = input.nextLine();
-
         LinkedList<Character> max = new LinkedList<>();
-
         // Tìm chuỗi tăng dần có độ dài lớn nhất
         for (int i = 0; i < string.length(); i++) { //Vòng lặp bên ngoài
             //Khai báo một linked list trung gian các kí tự của chuỗi tăng dần
@@ -35,7 +32,7 @@ public class Main {
         }
 
         // Hiển thị chuỗi tăng dần dài nhất
-        for (Character ch: max) { // 1 vòng lặp
+        for (Character ch : max) { // 1 vòng lặp
             System.out.print(ch); // 1 câu lệnh
         }
         System.out.println();
