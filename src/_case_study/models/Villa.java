@@ -1,50 +1,56 @@
 package _case_study.models;
 
 public class Villa extends Facility{
-    private String roomStandard;
-    private double poolArea;
-    private int numberOfFloors;
+    private String standardVilla;
+    private double areaPool;
+    private int floor;
 
     public Villa() {
     }
 
-    public Villa(String serviceName, int usableArea, double rentalCosts, int maximumNumberOfPeople, String rentalType, String roomStandard, double poolArea, int numberOfFloors) {
-        super(serviceName, usableArea, rentalCosts, maximumNumberOfPeople, rentalType);
-        this.roomStandard = roomStandard;
-        this.poolArea = poolArea;
-        this.numberOfFloors = numberOfFloors;
+    public Villa(int idFacility, String nameService, double areaUse, int rentalPrice, int rentalPeopleMax, String styleRental, String standardVilla, double areaPool, int floor) {
+        super(idFacility, nameService, areaUse, rentalPrice, rentalPeopleMax, styleRental);
+        this.standardVilla = standardVilla;
+        this.areaPool = areaPool;
+        this.floor = floor;
     }
 
-    public String getRoomStandard() {
-        return roomStandard;
+    public Villa(String standardVilla, double areaPool, int floor) {
+        this.standardVilla = standardVilla;
+        this.areaPool = areaPool;
+        this.floor = floor;
     }
 
-    public void setRoomStandard(String roomStandard) {
-        this.roomStandard = roomStandard;
+    public String getStandardVilla() {
+        return standardVilla;
     }
 
-    public double getPoolArea() {
-        return poolArea;
+    public void setStandardVilla(String standardVilla) {
+        this.standardVilla = standardVilla;
     }
 
-    public void setPoolArea(double poolArea) {
-        this.poolArea = poolArea;
+    public double getAreaPool() {
+        return areaPool;
     }
 
-    public int getNumberOfFloors() {
-        return numberOfFloors;
+    public void setAreaPool(double areaPool) {
+        this.areaPool = areaPool;
     }
 
-    public void setNumberOfFloors(int numberOfFloors) {
-        this.numberOfFloors = numberOfFloors;
+    public int getFloor() {
+        return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
     }
 
     @Override
     public String toString() {
-        return "Villa{" +
-                "roomStandard='" + roomStandard + '\'' +
-                ", poolArea=" + poolArea +
-                ", numberOfFloors=" + numberOfFloors +
+        return "Villa{" + super.toString() +
+                "standardVilla='" + standardVilla + '\'' +
+                ", areaPool=" + areaPool +
+                ", floor=" + floor +
                 '}';
     }
 }
