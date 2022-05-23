@@ -27,16 +27,7 @@ public class ArrayListStaffService implements IStaffService {
 
     @Override
     public void displayArrayStaff() {
-        for (int i = 0; i < staffArrayList.size(); i++) {
-            for (int j = i + 1; j < staffArrayList.size(); j++) {
-                if (staffArrayList.get(i) != null && staffArrayList.get(i).employeeSalary() == staffArrayList.get(j).employeeSalary() ) {
-                    Collections.sort(staffArrayList, new StaffNameDecreaseComparator());
-                } else {
-                    Collections.sort(staffArrayList, new StaffSalaryComparator());
-                }
-            }
-        }
-
+        Collections.sort(staffArrayList, new StaffSalaryComparator());
         for (Staff item : staffArrayList) {
             System.out.println(item);
         }

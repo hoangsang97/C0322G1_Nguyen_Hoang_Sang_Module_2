@@ -12,7 +12,13 @@ public class StaffSalaryComparator implements Comparator<Staff> {
         } else if (o1.employeeSalary() < o2.employeeSalary()) {
             return -1;
         } else {
-            return 1;
+            if (o1.getFullName().compareTo(o2.getFullName()) < 0) {
+                return 1;
+            } else if (o1.getFullName().compareTo(o2.getFullName()) > 0) {
+                return -1;
+            } else {
+                return 1;
+            }
         }
     }
 }
