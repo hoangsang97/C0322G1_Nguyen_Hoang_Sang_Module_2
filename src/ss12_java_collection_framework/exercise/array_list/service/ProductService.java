@@ -19,7 +19,6 @@ public class ProductService implements IProductService {
         productList.add(new Product(3, "iphone 12", 500, 10, "America"));
         productList.add(new Product(5, "iphone 13", 400, 10, "America"));
         productList.add(new Product(4, "iphone 14", 300, 10, "America"));
-        Collections.sort(productList, new ProductPriceAugmentComparator());
     }
 
     @Override
@@ -40,6 +39,7 @@ public class ProductService implements IProductService {
 
     @Override
     public void displayListProduct() {
+        Collections.sort(productList);
         for (Product item: productList) {
             System.out.println(item);
         }
@@ -53,8 +53,8 @@ public class ProductService implements IProductService {
             System.out.println("Không tồn tại id");
         } else {
             productList.remove(inputRemoveId - 1);
+            System.out.println("Delete successfully");
         }
-        System.out.println("Delete successfully");
     }
 
     @Override

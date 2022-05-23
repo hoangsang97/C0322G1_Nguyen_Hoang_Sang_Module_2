@@ -9,7 +9,6 @@ public class Display {
     public static Scanner scanner = new Scanner(System.in);
     IProductService productService = new ProductService();
 
-
     public void displayMain() {
         do {
             System.out.println("----------Product Management------------");
