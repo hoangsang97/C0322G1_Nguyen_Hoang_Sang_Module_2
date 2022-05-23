@@ -19,36 +19,36 @@ public class LinkedListStaffService implements IStaffService{
 
     @Override
     public void displayArrayStaff() {
-        for (int i = 0; i < staffLinkedList.size(); i++) {
-            if (staffLinkedList.get(i) != null) {
-                System.out.println(staffLinkedList.get(i));
+        for (Staff staff : staffLinkedList) {
+            if (staff != null) {
+                System.out.println(staff);
             }
         }
     }
 
     @Override
     public void displayManagementStaff() {
-        for (int i = 0; i < staffLinkedList.size(); i++) {
-            if (staffLinkedList.get(i) != null && staffLinkedList.get(i) instanceof ManagementStaff) {
-                System.out.println(staffLinkedList.get(i));
+        for (Staff staff : staffLinkedList) {
+            if (staff instanceof ManagementStaff) {
+                System.out.println(staff);
             }
         }
     }
 
     @Override
     public void displayDailyWorkerStaff() {
-        for (int i = 0; i < staffLinkedList.size(); i++) {
-            if (staffLinkedList.get(i) != null && staffLinkedList.get(i) instanceof ProductionStaff) {
-                System.out.println(staffLinkedList.get(i));
+        for (Staff staff : staffLinkedList) {
+            if (staff instanceof ProductionStaff) {
+                System.out.println(staff);
             }
         }
     }
 
     @Override
     public void displayProductionStaff() {
-        for (int i = 0; i < staffLinkedList.size(); i++) {
-            if (staffLinkedList.get(i) != null && staffLinkedList.get(i) instanceof DailyWorker) {
-                System.out.println(staffLinkedList.get(i));
+        for (Staff staff : staffLinkedList) {
+            if (staff instanceof DailyWorker) {
+                System.out.println(staff);
             }
         }
     }
