@@ -34,7 +34,7 @@ public class ArrayStaffService implements IStaffService{
     @Override
     public void displayDailyWorkerStaff() {
         for (int i = 0; i < arrayStaff.length; i++) {
-            if (arrayStaff[i]!= null && arrayStaff[i] instanceof ProductionStaff){
+            if (arrayStaff[i]!= null && arrayStaff[i] instanceof DailyWorker){
                 System.out.println(arrayStaff[i]);
             }
         }
@@ -43,10 +43,12 @@ public class ArrayStaffService implements IStaffService{
     @Override
     public void displayProductionStaff() {
         for (int i = 0; i < arrayStaff.length; i++) {
-            if (arrayStaff[i]!= null && arrayStaff[i] instanceof DailyWorker){
+            if (arrayStaff[i]!= null && arrayStaff[i] instanceof ProductionStaff){
                 System.out.println(arrayStaff[i]);
+                ((ProductionStaff) arrayStaff[i]).timeKeeping();
             }
         }
+
     }
 
     @Override

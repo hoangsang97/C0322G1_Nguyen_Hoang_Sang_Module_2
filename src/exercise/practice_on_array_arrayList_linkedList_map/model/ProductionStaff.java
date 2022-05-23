@@ -1,6 +1,8 @@
 package exercise.practice_on_array_arrayList_linkedList_map.model;
 
-public class ProductionStaff extends Staff {
+import exercise.practice_on_array_arrayList_linkedList_map.service.ITimeKeepingService;
+
+public class ProductionStaff extends Staff implements ITimeKeepingService {
     private int productNumber;
 
     public ProductionStaff() {
@@ -40,5 +42,10 @@ public class ProductionStaff extends Staff {
         } else {
             return 1;
         }
+    }
+
+    @Override
+    public void timeKeeping() {
+        System.out.println("Đã chấm công!");
     }
 }
