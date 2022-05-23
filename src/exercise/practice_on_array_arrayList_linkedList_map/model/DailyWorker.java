@@ -30,4 +30,15 @@ public class DailyWorker extends Staff{
                 "numberOfWorkdays=" + numberOfWorkdays +
                 '}';
     }
+
+    @Override
+    public int compareTo(Staff o) {
+        if (this.getYearOfBirth() > o.getYearOfBirth()) {
+            return 1;
+        }else if (this.getYearOfBirth() < o.getYearOfBirth()) {
+            return -1;
+        } else {
+            return 1;
+        }
+    }
 }

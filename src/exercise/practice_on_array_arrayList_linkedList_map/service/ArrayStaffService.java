@@ -55,15 +55,14 @@ public class ArrayStaffService implements IStaffService{
     }
 
     /**
-     * Nếu công ty có 1001 nhân viên thì sẽ xảy ra lỗi ArrayIndexOutOfBoundsException tràn mảng
-     * ưu và nhược điểm của ArrayList so với Array.
-     * array : + kích thước cố định
-     * + chỉ có thuộc tính length
-     * + chỉ có thể lưu trữ kDL nguyên thuỷ và đối tượng
-     * + tốc độ duyệt mảng nhanh hơn.
-     * arrayList: + kích thước mảng có thể thay đổi
-     * + cung cấp nhiều method để thao tác
-     * + chỉ lưu trữ kiểu đối tượng
-     * + tốc độ duyệt mảng chậm hơn
+     *  những khó khăn gì khi hiển thị thông tin: check mảng có null hay không
+     *
+     *  từ khóa instanceof làm chức năng:
+     *  kiểm tra kiểu dữ liệu
+     *
+     *  Nếu công ty có 1001 nhân viên thì sẽ xảy ra lỗi ArrayIndexOutOfBoundsException tràn mảng
+     *
+     *  Đa hình lúc runtime thể hiện ở overriding
+     *  Đa hình lúc compile thể hiện ở overloading
      */
 }

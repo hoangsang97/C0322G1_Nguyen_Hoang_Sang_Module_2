@@ -42,6 +42,17 @@ public class ManagementStaff extends Staff{
                 '}';
     }
 
+    @Override
+    public int compareTo(Staff o) {
+        if (this.getYearOfBirth() > o.getYearOfBirth()) {
+            return 1;
+        }else if (this.getYearOfBirth() < o.getYearOfBirth()) {
+            return -1;
+        } else {
+            return 1;
+        }
+    }
+
     /**
      * Muốn sử dụng comparable thì cần:
      * tạo một comparator tại class muốn triển khai -> viết lại phương thức compareTo()

@@ -4,7 +4,6 @@ import exercise.practice_on_array_arrayList_linkedList_map.controller.DisplayArr
 
 public class MainArrayList {
     public static void main(String[] args) {
-        DisplayArrayList displayArrayList = new DisplayArrayList();
-        displayArrayList.displayMain();
+        DisplayArrayList.displayMain();
     }
 }

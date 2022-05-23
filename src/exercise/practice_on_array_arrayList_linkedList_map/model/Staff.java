@@ -1,6 +1,6 @@
 package exercise.practice_on_array_arrayList_linkedList_map.model;
 
-public abstract class Staff {
+public abstract class Staff implements Comparable<Staff> {
     private String fullName;
     private int yearOfBirth;
     private String address;
