@@ -4,6 +4,7 @@ public class Employee extends Person{
     private String level;
     private String position;
     private int salary;
+    private String dateOfBirth;
 
     public Employee() {
     }
@@ -13,6 +14,15 @@ public class Employee extends Person{
         this.level = level;
         this.position = position;
         this.salary = salary;
+    }
+
+
+    public Employee(int id, String name, String sex, String idCard, String email, String level, String position, int salary, String dateOfBirth) {
+        super(id, name, sex, idCard, email);
+        this.level = level;
+        this.position = position;
+        this.salary = salary;
+        this.dateOfBirth = dateOfBirth;
     }
 
     public Employee(String level, String position, int salary) {
@@ -43,6 +53,14 @@ public class Employee extends Person{
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     @Override

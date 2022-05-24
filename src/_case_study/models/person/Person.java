@@ -20,6 +20,14 @@ public abstract class Person {
         this.email = email;
     }
 
+    public Person(int id, String name, String sex, String idCard, String email) {
+        this.id = id;
+        this.name = name;
+        this.sex = sex;
+        this.idCard = idCard;
+        this.email = email;
+    }
+
     public int getId() {
         return id;
     }

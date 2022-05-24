@@ -44,7 +44,39 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void edit() {
-
+        int checkId = 0;
+        System.out.println("Nhập id muốn sửa: ");
+        int inputId = Integer.parseInt(scanner.nextLine());
+        for (int i = 0; i < customerList.size(); i++) {
+            if (customerList.get(i).getId() == inputId) {
+                System.out.println("Nhập tên");
+                String name = scanner.nextLine();
+                System.out.println("Nhập tuổi");
+                int age = Integer.parseInt(scanner.nextLine());
+                System.out.println("Nhập giới tính");
+                String sex = scanner.nextLine();
+                System.out.println("Nhập chứng minh");
+                String idCard = scanner.nextLine();
+                System.out.println("Nhập Email");
+                String email = scanner.nextLine();
+                System.out.println("Nhập loại khách hàng");
+                String typeCustomer = scanner.nextLine();
+                System.out.println("Nhập Địa chỉ");
+                String address = scanner.nextLine();
+                customerList.get(i).setName(name);
+                customerList.get(i).setAge(age);
+                customerList.get(i).setSex(sex);
+                customerList.get(i).setIdCard(idCard);
+                customerList.get(i).setEmail(email);
+                customerList.get(i).setTypeCustomer(typeCustomer);
+                customerList.get(i).setAddress(address);
+                System.out.println("Cập nhập thành công");
+                checkId++;
+            }
+        }
+        if (checkId == 0) {
+            System.out.println("Không tìm thấy id");
+        }
     }
 
     @Override

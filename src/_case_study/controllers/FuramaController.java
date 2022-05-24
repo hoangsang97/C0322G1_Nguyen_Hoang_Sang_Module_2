@@ -68,7 +68,15 @@ public class FuramaController {
                     employeeService.display();
                     break;
                 case 2:
+                    System.out.println("------ Add new employee-------");
                     employeeService.addNew();
+                    break;
+                case 3:
+                    System.out.println("------ Edit employee-------");
+                    employeeService.edit();
+                    break;
+                case 4:
+                    displayMainMenu();
                     break;
             }
         } while (true);
@@ -93,6 +101,13 @@ public class FuramaController {
                 case 2:
                     System.out.println("--------Add new customers---------");
                     customerService.addNew();
+                    break;
+                case 3:
+                    System.out.println("------Edit customers-------");
+                    customerService.edit();
+                    break;
+                case 4:
+                    displayMainMenu();
                     break;
             }
         } while (true);
@@ -138,6 +153,19 @@ public class FuramaController {
                     System.out.println("------Add new Villa-------");
                     facilityService.addNewVilla();
                     displayFacilityManagement();
+                    break;
+                case 2:
+                    System.out.println("------Add new House-------");
+                    facilityService.addNewHouse();
+                    displayFacilityManagement();
+                    break;
+                case 3:
+                    System.out.println("------Add new Room-------");
+                    facilityService.addNewRoom();
+                    displayFacilityManagement();
+                    break;
+                case 4:
+                    displayMainMenu();
                     break;
             }
         } while (true);
