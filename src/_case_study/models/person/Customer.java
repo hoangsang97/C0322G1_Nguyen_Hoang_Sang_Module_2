@@ -1,4 +1,4 @@
-package _case_study.models;
+package _case_study.models.person;
 
 public class Customer extends Person{
     private String typeCustomer;

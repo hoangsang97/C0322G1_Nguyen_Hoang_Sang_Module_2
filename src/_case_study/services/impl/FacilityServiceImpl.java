@@ -1,7 +1,7 @@
 package _case_study.services.impl;
 
-import _case_study.models.Facility;
-import _case_study.models.Villa;
+import _case_study.models.facility.Facility;
+import _case_study.models.facility.Villa;
 import _case_study.services.FacilityService;
 
 import java.util.LinkedHashMap;

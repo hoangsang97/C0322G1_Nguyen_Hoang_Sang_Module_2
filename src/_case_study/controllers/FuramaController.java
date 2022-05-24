@@ -1,9 +1,7 @@
 package _case_study.controllers;
 
 import _case_study.services.EmployeeService;
-import _case_study.services.impl.CustomerServiceImpl;
-import _case_study.services.impl.EmployeeServiceImpl;
-import _case_study.services.impl.FacilityServiceImpl;
+import _case_study.services.impl.*;
 
 import java.util.Scanner;
 
@@ -11,6 +9,7 @@ public class FuramaController {
     public static Scanner sc = new Scanner(System.in);
 
     public static void displayMainMenu() {
+        int choose = 0;
         do {
             System.out.println("----------Menu Manager-----------");
             System.out.println("1. Employee Management");
@@ -21,8 +20,11 @@ public class FuramaController {
             System.out.println("6. Exit");
 
             System.out.println("--------Choose---------");
-            int choose = Integer.parseInt(sc.nextLine());
-
+            try {
+                choose = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại: ");
+            }
             switch (choose) {
                 case 1:
                     displayEmployeeManagement();
@@ -34,13 +36,7 @@ public class FuramaController {
                     displayFacilityManagement();
                     break;
                 case 4:
-                    System.out.println("Booking Management");
-                    System.out.println("1. Add new booking");
-                    System.out.println("2. Display list booking");
-                    System.out.println("3. Create new contracts");
-                    System.out.println("4. Display list contracts");
-                    System.out.println("5. Edit contracts");
-                    System.out.println("6. Return main menu");
+                    displayBookingManagement();
                     break;
                 case 5:
                     System.out.println("Promotion Management");
@@ -142,6 +138,43 @@ public class FuramaController {
                     System.out.println("------Add new Villa-------");
                     facilityService.addNewVilla();
                     displayFacilityManagement();
+                    break;
+            }
+        } while (true);
+    }
+
+    public static void displayBookingManagement() {
+        BookingServiceImpl bookingService = new BookingServiceImpl();
+        ContactServiceImpl contactService = new ContactServiceImpl();
+        do {
+            System.out.println("-------------Booking Management------------");
+            System.out.println("1. Add new booking");
+            System.out.println("2. Display list booking");
+            System.out.println("3. Create new contracts");
+            System.out.println("4. Display list contracts");
+            System.out.println("5. Edit contracts");
+            System.out.println("6. Return main menu");
+            System.out.println("--------Choose---------");
+            int choose = Integer.parseInt(sc.nextLine());
+
+            switch (choose) {
+                case 1:
+                    System.out.println("--------Add new booking---------");
+                    bookingService.addBooking();
+                    displayBookingManagement();
+                    break;
+                case 2:
+                    System.out.println("------Display list booking-------");
+                    bookingService.displayListBooking();
+                    displayBookingManagement();
+                    break;
+                case 3:
+                    System.out.println("------Create new contracts-------");
+                    contactService.createNewContract();
+                    break;
+                case 4:
+                    System.out.println("------Display list contracts-------");
+                    contactService.displayListContract();
                     break;
             }
         } while (true);

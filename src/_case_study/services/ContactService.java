@@ -1,4 +1,7 @@
 package _case_study.services;
 
-public interface ContactService extends Service{
+public interface ContactService{
+    void createNewContract();
+    void displayListContract();
+    void editContract();
 }

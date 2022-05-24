@@ -1,6 +1,4 @@
-package _case_study.models;
-
-import java.util.Scanner;
+package _case_study.models.person;
 
 public class Employee extends Person{
     private String level;

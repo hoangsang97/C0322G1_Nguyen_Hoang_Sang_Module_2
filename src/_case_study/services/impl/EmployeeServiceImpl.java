@@ -1,6 +1,6 @@
 package _case_study.services.impl;
 
-import _case_study.models.Employee;
+import _case_study.models.person.Employee;
 import _case_study.services.EmployeeService;
 
 import java.util.ArrayList;
