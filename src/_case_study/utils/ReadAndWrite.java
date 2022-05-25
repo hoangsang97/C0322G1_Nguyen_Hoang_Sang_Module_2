@@ -1,14 +1,11 @@
 package _case_study.utils;
 
-import _case_study.models.person.Employee;
-
 import java.io.*;
 import java.util.Collection;
-import java.util.List;
 
 public class ReadAndWrite {
 
-    public static void write(List<Employee> employeeList, String diaChi) {
+    public static void write(Collection collection, String diaChi) {
         File file = new File(diaChi);
 
         if (!file.exists()) {
@@ -25,7 +22,7 @@ public class ReadAndWrite {
         try {
             fileOutputStream = new FileOutputStream(file);
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            objectOutputStream.writeObject(employeeList);
+            objectOutputStream.writeObject(collection);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
