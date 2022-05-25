@@ -16,12 +16,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     static {
         employeeList.add(new Employee(1, "sang", 18, "nam", "21233341", "sang@gmail", "quanly", "letan", 1000));
-        ReadAndWrite.write(employeeList, "C:\\Users\\sangn\\Desktop\\C0322G1\\C0322G1_Nguyen_Hoang_Sang_Module_2\\src\\_case_study\\data\\employee.csv");
+        ReadAndWrite.write(employeeList, "/Users/hoangsangnguyen/Desktop/C0322G1/C0322G1_Nguyen_Hoang_Sang_Module_2/src/_case_study/data/employee.csv");
     }
 
+    public static void main(String[] args) {
+
+    }
     @Override
     public void display() {
-        employeeList = (List<Employee>) ReadAndWrite.read("C:\\Users\\sangn\\Desktop\\C0322G1\\C0322G1_Nguyen_Hoang_Sang_Module_2\\src\\_case_study\\data\\employee.csv");
+        employeeList = (List<Employee>) ReadAndWrite.read("/Users/hoangsangnguyen/Desktop/C0322G1/C0322G1_Nguyen_Hoang_Sang_Module_2/src/_case_study/data/employee.csv");
         for (Employee item : employeeList) {
             System.out.println(item);
         }
@@ -51,7 +54,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee = new Employee(id, name, age, sex, idCard, email, level, position, salary);
         employeeList.add(employee);
         System.out.println("Đã thêm thành công");
-        ReadAndWrite.write(employeeList, "C:\\Users\\sangn\\Desktop\\C0322G1\\C0322G1_Nguyen_Hoang_Sang_Module_2\\src\\_case_study\\data\\employee.csv");
+        ReadAndWrite.write(employeeList, "/Users/hoangsangnguyen/Desktop/C0322G1/C0322G1_Nguyen_Hoang_Sang_Module_2/src/_case_study/data/employee.csv");
     }
 
     @Override

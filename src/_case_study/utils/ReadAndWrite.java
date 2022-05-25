@@ -37,7 +37,6 @@ public class ReadAndWrite {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
     }
 
