@@ -22,20 +22,20 @@ public class ReadAndWrite {
         File file = new File(pathFile);
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
-
-        if (!file.exists()) {
-            try {
-                throw new MyException("File không tồn tại");
-            } catch (MyException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                throw new MyException("File đã tồn tại");
-            } catch (MyException e) {
-                e.printStackTrace();
-            }
-        }
+//
+//        if (!file.exists()) {
+//            try {
+//                throw new MyException("File không tồn tại");
+//            } catch (MyException e) {
+//                e.printStackTrace();
+//            }
+//        } else {
+//            try {
+//                throw new MyException("File đã tồn tại");
+//            } catch (MyException e) {
+//                e.printStackTrace();
+//            }
+//        }
 
         try {
             fileWriter = new FileWriter(file, true);

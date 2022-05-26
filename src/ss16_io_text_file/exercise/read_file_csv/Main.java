@@ -1,6 +1,7 @@
 package ss16_io_text_file.exercise.read_file_csv;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,21 +9,22 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        BufferedReader br = null;
+        File file = new File("src/ss16_io_text_file/exercise/read_file_csv/countries.csv");
+        BufferedReader bufferedReader = null;
         try {
             String line;
-            br = new BufferedReader(new FileReader("src/ss16_io_text_file/exercise/read_file_csv/countries.csv"));
+            FileReader fileReader = new FileReader(file);
+            bufferedReader = new BufferedReader(fileReader);
 
-            while ((line = br.readLine()) != null) {
+            while ((line = bufferedReader.readLine()) != null) {
                 printCountry(parseCsvLine(line));
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             try {
-                if (br != null)
-                    br.close();
+                if (bufferedReader != null)
+                    bufferedReader.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
