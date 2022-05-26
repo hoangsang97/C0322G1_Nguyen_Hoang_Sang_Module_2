@@ -48,6 +48,29 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public void editContract() {
-
-    }
+//       for (Contract item: contractList) {
+//           if
+//       }
+//
+//        while (!bookingQueue.isEmpty()) {
+//            Booking booking = bookingQueue.poll();
+//            Customer customer = booking.getCustomer();
+//
+//            System.out.println("Đang sửa hợp đồng cho Booking có thông tin " + booking);
+//            System.out.println("Đang sửa hợp đồng cho khách hàng có thông tin " + customer);
+//            Contract contract = new Contract();
+//            System.out.println("Nhập id hợp đồng muốn chỉnh sửa: ");
+//            int inputIdContact = Integer.parseInt(scanner.nextLine());
+//            if(contract.getIdContract() == inputIdContact) {
+//                System.out.println("Nhập số tiền trả trước: ");
+//                String pre = scanner.nextLine();
+//                System.out.println("Nhập số chi phí: ");
+//                String pay = scanner.nextLine();
+//
+//                contract.s
+//            }
+//
+//            System.out.println("Đã tạo thành công hợp đồng: " + contract);
+//        }
+     }
 }

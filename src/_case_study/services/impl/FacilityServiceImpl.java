@@ -19,7 +19,7 @@ public class FacilityServiceImpl implements FacilityService {
     public static final String REGEX_INT = "^[1-9]|([1][0-9])$";
     public static final String REGEX_AREA = "^([3-9]\\d|[1-9]\\d{2,})$";
 
-    private static Map<Integer, Facility> facilityIntegerMap = new LinkedHashMap<>();
+    private static  Map<Integer, Facility> facilityIntegerMap = new LinkedHashMap<>();
     private static Scanner scanner = new Scanner(System.in);
 
     @Override
