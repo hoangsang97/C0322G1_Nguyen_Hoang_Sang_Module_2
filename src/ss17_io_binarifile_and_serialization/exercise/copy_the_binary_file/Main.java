@@ -1,23 +1,19 @@
-package ss12_java_collection_framework.exercise.array_list.controller;
-
-import ss12_java_collection_framework.exercise.array_list.service.IProductService;
-import ss12_java_collection_framework.exercise.array_list.service.ProductService;
+package ss17_io_binarifile_and_serialization.exercise.copy_the_binary_file;
 
 import java.util.Scanner;
 
-public class Display {
+public class Main {
     public static Scanner scanner = new Scanner(System.in);
-    IProductService productService = new ProductService();
+    public static IProductService productService = new ProductService();
 
-    public void displayMain() {
+    public static void main(String[] args) {
         do {
             System.out.println("----------Product Management------------");
             System.out.println("1. Display list product");
             System.out.println("2. Add new product");
             System.out.println("3. Search product");
-            System.out.println("4. Delete product");
-            System.out.println("5. Update product");
-            System.out.println("6. Exit");
+            System.out.println("4. Copy the binary file");
+            System.out.println("5. Exit");
             System.out.println("Choose option");
             Scanner scanner = new Scanner(System.in);
             int choose = 0;
@@ -46,14 +42,10 @@ public class Display {
                     productService.findProductByName();
                     break;
                 case 4:
-                    System.out.println("Delete product");
-                    productService.removeProductByiD();
+                    System.out.println("Copy the binary file");
+                    productService.copyTheBinaryFile();
                     break;
                 case 5:
-                    System.out.println("Update product");
-                    productService.updateProductById();
-                    break;
-                case 6:
                     System.exit(0);
                 default:
                     System.out.println("không có option mà bạn lựa chọn, xin hãy nhập lại");
