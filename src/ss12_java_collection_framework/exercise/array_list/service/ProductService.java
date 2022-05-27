@@ -2,6 +2,7 @@ package ss12_java_collection_framework.exercise.array_list.service;
 
 import ss12_java_collection_framework.exercise.array_list.model.Product;
 import ss12_java_collection_framework.exercise.array_list.utils.ProductPriceAugmentComparator;
+import ss12_java_collection_framework.exercise.array_list.utils.ReadAndWrite;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,17 +13,10 @@ public class ProductService implements IProductService {
     public static Scanner scanner = new Scanner(System.in);
     public static List<Product> productList = new ArrayList<>();
 
-
-    static {
-        productList.add(new Product(1, "iphone X", 200, 10, "America"));
-        productList.add(new Product(2, "iphone 11", 200, 10, "America"));
-        productList.add(new Product(3, "iphone 12", 500, 10, "America"));
-        productList.add(new Product(5, "iphone 13", 400, 10, "America"));
-        productList.add(new Product(4, "iphone 14", 300, 10, "America"));
-    }
-
     @Override
     public void addNewProduct() {
+        System.out.println("Nhập id");
+        int id = Integer.parseInt(scanner.nextLine());
         System.out.println("Nhập tên");
         String name = scanner.nextLine();
         System.out.println("Nhập Giá");
@@ -31,14 +25,22 @@ public class ProductService implements IProductService {
         int amount = Integer.parseInt(scanner.nextLine());
         System.out.println("Nhập nhà sản xuất");
         String production = scanner.nextLine();
-        int id = productList.get(productList.size() - 1).getId() + 1;
         Product product = new Product(id, name, price, amount, production);
         productList.add(product);
+        String line = product.getId() + "," + product.getName() + "," + product.getPrice() + "," + product.getAmount() + "," + product.getProduction();
+        ReadAndWrite.write("src/ss12_java_collection_framework/exercise/array_list/data/product.csv", line);
         System.out.println("Add new success");
     }
 
     @Override
     public void displayListProduct() {
+        List<String[]> listLine = ReadAndWrite.read("src/ss12_java_collection_framework/exercise/array_list/data/product.csv");
+        productList.clear();
+        for (String[] item: listLine) {
+            Product product = new Product(Integer.parseInt(item[0]), item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), item[4]);
+            productList.add(product);
+        }
+
         Collections.sort(productList);
         for (Product item: productList) {
             System.out.println(item);

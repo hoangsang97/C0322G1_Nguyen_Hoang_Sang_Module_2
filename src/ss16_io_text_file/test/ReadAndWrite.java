@@ -1,8 +1,5 @@
 package ss16_io_text_file.test;
 
-import ss05_access_modifier_static_method_static_property.test.Demo;
-import ss15_xu_li_ngoai_le_va_debug.exercise.illegalTriangleException.MyException;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;

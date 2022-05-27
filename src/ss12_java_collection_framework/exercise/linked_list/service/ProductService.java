@@ -1,7 +1,9 @@
 package ss12_java_collection_framework.exercise.linked_list.service;
 
+import ss12_java_collection_framework.exercise.array_list.utils.ReadAndWrite;
 import ss12_java_collection_framework.exercise.linked_list.model.Product;
 import ss12_java_collection_framework.exercise.linked_list.utils.ProductPriceAugmentComparator;
+import ss12_java_collection_framework.exercise.linked_list.utils.ReadAndWriteFile;
 
 import java.util.*;
 
@@ -9,14 +11,8 @@ public class ProductService implements IProductService {
     public static Scanner scanner = new Scanner(System.in);
     public static List<Product> productList = new LinkedList<>();
 
-
     static {
-        productList.add(new Product(1, "iphone X", 200, 10, "America"));
-        productList.add(new Product(2, "iphone 11", 200, 10, "America"));
-        productList.add(new Product(3, "iphone 12", 500, 10, "America"));
-        productList.add(new Product(5, "iphone 13", 400, 10, "America"));
-        productList.add(new Product(4, "iphone 14", 300, 10, "America"));
-        Collections.sort(productList, new ProductPriceAugmentComparator());
+        productList.add(new Product(1, "SamSum", 100, 10, "ĐN"));
     }
 
     @Override
@@ -31,12 +27,21 @@ public class ProductService implements IProductService {
         String production = scanner.nextLine();
         int id = productList.get(productList.size() - 1).getId() + 1;
         Product product = new Product(id, name, price, amount, production);
+        String line = product.getId() + "," + product.getName() + "," + product.getPrice() + "," + product.getAmount() + "," + product.getProduction();
+        ReadAndWriteFile.write("src/ss12_java_collection_framework/exercise/linked_list/data/product.csv", line);
         productList.add(product);
         System.out.println("Add new success");
     }
 
     @Override
     public void displayListProduct() {
+        List<String[]> listRead = ReadAndWriteFile.read("src/ss12_java_collection_framework/exercise/linked_list/data/product.csv");
+        productList.clear();
+        for (String[] item: listRead) {
+            Product product = new Product(Integer.parseInt(item[0]), item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), item[4]);
+            productList.add(product);
+        }
+
         for (Product item: productList) {
             System.out.println(item);
         }
