@@ -17,13 +17,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     static {
         employeeList.add(new Employee(1, "sang", 18, "nam", "21233341", "sang@gmail", "quanly", "letan", 1000));
 //        ReadAndWrite.write(employeeList, "/Users/hoangsangnguyen/Desktop/C0322G1/C0322G1_Nguyen_Hoang_Sang_Module_2/src/_case_study/data/employee.csv");
-        ReadAndWrite.write(employeeList, "C:\\Users\\sangn\\Desktop\\C0322G1\\C0322G1_Nguyen_Hoang_Sang_Module_2\\src\\_case_study\\data\\employee.csv");
+//        ReadAndWrite.write(employeeList, "C:\\Users\\sangn\\Desktop\\C0322G1\\C0322G1_Nguyen_Hoang_Sang_Module_2\\src\\_case_study\\data\\employee.csv");
     }
 
     @Override
     public void display() {
 //        employeeList = (List<Employee>) ReadAndWrite.read("/Users/hoangsangnguyen/Desktop/C0322G1/C0322G1_Nguyen_Hoang_Sang_Module_2/src/_case_study/data/employee.csv");
-        employeeList = (List<Employee>) ReadAndWrite.read("C:\\Users\\sangn\\Desktop\\C0322G1\\C0322G1_Nguyen_Hoang_Sang_Module_2\\src\\_case_study\\data\\employee.csv");
+//        employeeList = (List<Employee>) ReadAndWrite.read("C:\\Users\\sangn\\Desktop\\C0322G1\\C0322G1_Nguyen_Hoang_Sang_Module_2\\src\\_case_study\\data\\employee.csv");
         for (Employee item : employeeList) {
             System.out.println(item);
         }
@@ -31,8 +31,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void addNew() {
-        System.out.println("Nhập id");
-        int id = Integer.parseInt(scanner.nextLine());
         System.out.println("Nhập tên");
         String name = scanner.nextLine();
         System.out.println("Nhập tuổi");
@@ -49,12 +47,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         String position = scanner.nextLine();
         System.out.println("Nhập lương");
         int salary = Integer.parseInt(scanner.nextLine());
-
+        int id = employeeList.get(employeeList.size() - 1).getId() + 1;
         Employee employee = new Employee(id, name, age, sex, idCard, email, level, position, salary);
         employeeList.add(employee);
         System.out.println("Đã thêm thành công");
 //        ReadAndWrite.write(employeeList, "/Users/hoangsangnguyen/Desktop/C0322G1/C0322G1_Nguyen_Hoang_Sang_Module_2/src/_case_study/data/employee.csv");
-        ReadAndWrite.write(employeeList, "C:\\Users\\sangn\\Desktop\\C0322G1\\C0322G1_Nguyen_Hoang_Sang_Module_2\\src\\_case_study\\data\\employee.csv");
+//        ReadAndWrite.write(employeeList, "C:\\Users\\sangn\\Desktop\\C0322G1\\C0322G1_Nguyen_Hoang_Sang_Module_2\\src\\_case_study\\data\\employee.csv");
     }
 
     @Override
@@ -80,6 +78,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 String position = scanner.nextLine();
                 System.out.println("Nhập lương");
                 int salary = Integer.parseInt(scanner.nextLine());
+
                 employeeList.get(i).setName(name);
                 employeeList.get(i).setAge(age);
                 employeeList.get(i).setSex(sex);
@@ -92,6 +91,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 checkId++;
             }
         }
+
         if (checkId == 0) {
             System.out.println("Không tìm thấy id");
         }
