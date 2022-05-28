@@ -19,11 +19,17 @@ public class FuramaController {
             System.out.println("6. Exit");
 
             System.out.println("--------Choose---------");
-            try {
-                choose = Integer.parseInt(sc.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại: ");
-            }
+            boolean check = false;
+            do {
+                try {
+                    choose = Integer.parseInt(sc.nextLine());
+                    check = false;
+                } catch (NumberFormatException e) {
+                    System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại: ");
+                    check = true;
+                }
+            } while (check);
+
             switch (choose) {
                 case 1:
                     displayEmployeeManagement();
@@ -45,7 +51,8 @@ public class FuramaController {
                     break;
                 case 6:
                     System.exit(0);
-                    break;
+                default:
+                    System.out.println("Không có option này, xin vui lòng nhập lại");
             }
         } while (true);
     }
@@ -131,6 +138,9 @@ public class FuramaController {
                 case 2:
                     System.out.println("--------Add new facility---------");
                     addNewFacilityManagement();
+                    break;
+                case 4:
+                    displayMainMenu();
                     break;
             }
         } while (true);

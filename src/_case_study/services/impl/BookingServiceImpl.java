@@ -7,6 +7,7 @@ import _case_study.models.facility.Villa;
 import _case_study.services.BookingService;
 import _case_study.utils.BookingComparator;
 
+import java.time.format.DateTimeParseException;
 import java.util.*;
 
 public class BookingServiceImpl implements BookingService {
@@ -36,14 +37,22 @@ public class BookingServiceImpl implements BookingService {
         }
         Customer customer = chooseCustomer();
         Facility facility = chooseFacility();
-        System.out.println("Nhập ngày bắt đầu thuê: ");
-        String starDate = scanner.nextLine();
-        System.out.println("Nhập ngày trả phòng: ");
-        String endDate = scanner.nextLine();
-        Booking booking = new Booking(id, starDate, endDate, customer, facility);
-
-        bookingSet.add(booking);
-        System.out.println("Đã tạo booking thành công");
+        boolean check = false;
+        do {
+            try {
+                System.out.println("Nhập ngày bắt đầu thuê: ");
+                String starDate = scanner.nextLine();
+                System.out.println("Nhập ngày trả phòng: ");
+                String endDate = scanner.nextLine();
+                Booking booking = new Booking(id, starDate, endDate, customer, facility);
+                bookingSet.add(booking);
+                System.out.println("Đã tạo booking thành công");
+                check = false;
+            } catch (DateTimeParseException e) {
+                System.out.println("Nhập sai định dạng ngày tháng năm, xin vui lòng nhập lại");
+                check = true;
+            }
+        } while (check);
     }
 
     @Override

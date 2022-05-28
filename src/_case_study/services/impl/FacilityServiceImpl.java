@@ -67,7 +67,7 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     private String inputArea() {
-        System.out.println("Nhập diện tích hồ bơi");
+        System.out.println("Nhập diện tích sử dụng");
         return RegexData.regexStr(scanner.nextLine(), REGEX_AREA, "Bạn đã nhập sai định dạng, diện tích phải lớn hơn 30");
     }
 

@@ -63,6 +63,7 @@ public class CustomerServiceImpl implements CustomerService {
                 String typeCustomer = scanner.nextLine();
                 System.out.println("Nhập Địa chỉ");
                 String address = scanner.nextLine();
+
                 customerList.get(i).setName(name);
                 customerList.get(i).setAge(age);
                 customerList.get(i).setSex(sex);
@@ -70,6 +71,7 @@ public class CustomerServiceImpl implements CustomerService {
                 customerList.get(i).setEmail(email);
                 customerList.get(i).setTypeCustomer(typeCustomer);
                 customerList.get(i).setAddress(address);
+
                 System.out.println("Cập nhập thành công");
                 checkId++;
             }

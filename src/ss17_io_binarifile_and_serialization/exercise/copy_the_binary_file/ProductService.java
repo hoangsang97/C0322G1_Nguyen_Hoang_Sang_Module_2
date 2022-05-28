@@ -66,7 +66,7 @@ public class ProductService implements IProductService {
 
         try {
             copyFileUsingJava7Files(sourceFile, destFile);
-            //copyFileUsingStream(sourceFile, destFile);
+            //copyFileStream(sourceFile, destFile);
             System.out.println("Đã sao chép xong");
         } catch (IOException ioe) {
             System.out.println("Không thể sao chép tệp đó");
