@@ -1,57 +1,55 @@
 package _case_study.utils;
 
 import java.io.*;
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReadAndWrite {
-
-    public static void write(Collection collection, String diaChi) {
-        File file = new File(diaChi);
-
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        FileOutputStream fileOutputStream = null;
-        ObjectOutputStream objectOutputStream = null;
+    public static void writeFile(String pathFile, String data) {
+        File file = new File(pathFile);
+        FileWriter fileWriter = null;
+        BufferedWriter bufferedWriter = null;
 
         try {
-            fileOutputStream = new FileOutputStream(file);
-            objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            objectOutputStream.writeObject(collection);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            fileWriter = new FileWriter(file, true);
+            bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write(data);
+            bufferedWriter.newLine();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             try {
-                fileOutputStream.close();
-                objectOutputStream.close();
+                bufferedWriter.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static Object read(String diaChi) {
-        FileInputStream fileInputStream = null;
-        ObjectInputStream objectInputStream = null;
-
-        Object object = null;
-
+    public static List<String[]> readFile(String pathFile) {
+        File file = new File(pathFile);
+        List<String[]> list = new ArrayList<>();
+        FileReader fileReader = null;
+        BufferedReader bufferedReader = null;
+        String line = null;
         try {
-            fileInputStream = new FileInputStream(diaChi);
-            objectInputStream = new ObjectInputStream(fileInputStream);
-
-            object = objectInputStream.readObject();
-            return object;
-        } catch (Exception e) {
+            fileReader = new FileReader(file);
+            bufferedReader = new BufferedReader(fileReader);
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] arr = line.split(",");
+                list.add(arr);
+            }
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                bufferedReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        return null;
+        return list;
     }
 }

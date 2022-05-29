@@ -14,16 +14,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     private static Scanner scanner = new Scanner(System.in);
 //    private static final String BIRTHDAY_REGEX = "(^(((0[1-9]|1[0-9]|2[0-8])[\\/](0[1-9]|1[012]))|((29|30|31)[\\/](0[13578]|1[02]))";
 
-    static {
-        employeeList.add(new Employee(1, "sang", 18, "nam", "21233341", "sang@gmail", "quanly", "letan", 1000));
-//        ReadAndWrite.write(employeeList, "/Users/hoangsangnguyen/Desktop/C0322G1/C0322G1_Nguyen_Hoang_Sang_Module_2/src/_case_study/data/employee.csv");
-//        ReadAndWrite.write(employeeList, "C:\\Users\\sangn\\Desktop\\C0322G1\\C0322G1_Nguyen_Hoang_Sang_Module_2\\src\\_case_study\\data\\employee.csv");
-    }
-
     @Override
     public void display() {
-//        employeeList = (List<Employee>) ReadAndWrite.read("/Users/hoangsangnguyen/Desktop/C0322G1/C0322G1_Nguyen_Hoang_Sang_Module_2/src/_case_study/data/employee.csv");
-//        employeeList = (List<Employee>) ReadAndWrite.read("C:\\Users\\sangn\\Desktop\\C0322G1\\C0322G1_Nguyen_Hoang_Sang_Module_2\\src\\_case_study\\data\\employee.csv");
+        List<String[]> list = ReadAndWrite.readFile("src/_case_study/data/employee.csv");
+        employeeList.clear();
+        for (String[] item: list) {
+            Employee employee = new Employee(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), item[3], item[4], item[5], item[6], item[7], Integer.parseInt(item[8]));
+            employeeList.add(employee);
+        }
+
         for (Employee item : employeeList) {
             System.out.println(item);
         }
@@ -50,9 +49,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         int id = employeeList.get(employeeList.size() - 1).getId() + 1;
         Employee employee = new Employee(id, name, age, sex, idCard, email, level, position, salary);
         employeeList.add(employee);
+        String line = employee.getId() + "," + employee.getName() + "," + employee.getAge() + "," + employee.getSex() + "," + employee.getIdCard() + "," + employee.getEmail() + "," + employee.getLevel() + "," + employee.getPosition() + "," + employee.getSalary();
+        ReadAndWrite.writeFile("src/_case_study/data/employee.csv", line);
         System.out.println("Đã thêm thành công");
-//        ReadAndWrite.write(employeeList, "/Users/hoangsangnguyen/Desktop/C0322G1/C0322G1_Nguyen_Hoang_Sang_Module_2/src/_case_study/data/employee.csv");
-//        ReadAndWrite.write(employeeList, "C:\\Users\\sangn\\Desktop\\C0322G1\\C0322G1_Nguyen_Hoang_Sang_Module_2\\src\\_case_study\\data\\employee.csv");
     }
 
     @Override

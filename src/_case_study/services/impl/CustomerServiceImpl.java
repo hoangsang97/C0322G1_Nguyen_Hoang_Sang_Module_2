@@ -2,6 +2,7 @@ package _case_study.services.impl;
 
 import _case_study.models.person.Customer;
 import _case_study.services.CustomerService;
+import _case_study.utils.ReadAndWrite;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,15 +14,19 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void display() {
-        for (Customer item: customerList) {
+        List<String[]> lineString = ReadAndWrite.readFile("src/_case_study/data/customer.csv");
+        customerList.clear();
+        for (String[] item : lineString) {
+            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), item[3], item[4], item[5], item[6], item[7]);
+            customerList.add(customer);
+        }
+        for (Customer item : customerList) {
             System.out.println(item);
         }
     }
 
     @Override
     public void addNew() {
-        System.out.println("Nhập id");
-        int id = Integer.parseInt(scanner.nextLine());
         System.out.println("Nhập tên");
         String name = scanner.nextLine();
         System.out.println("Nhập tuổi");
@@ -36,9 +41,11 @@ public class CustomerServiceImpl implements CustomerService {
         String typeCustomer = scanner.nextLine();
         System.out.println("Nhập Địa chỉ");
         String address = scanner.nextLine();
-
+        int id = customerList.get(customerList.size() - 1).getId() + 1;
         Customer customer = new Customer(id, name, age, sex, idCard, email, typeCustomer, address);
         customerList.add(customer);
+        String line = customer.getId() + "," + customer.getName() + "," + customer.getAge() + "," + customer.getSex() + "," + customer.getIdCard() + "," + customer.getEmail() + "," + customer.getTypeCustomer() + "," + customer.getAddress();
+        ReadAndWrite.writeFile("src/_case_study/data/customer.csv", line);
         System.out.println("Đã thêm khách hàng thành công");
     }
 

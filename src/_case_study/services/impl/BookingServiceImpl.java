@@ -47,6 +47,7 @@ public class BookingServiceImpl implements BookingService {
                 Booking booking = new Booking(id, starDate, endDate, customer, facility);
                 bookingSet.add(booking);
                 System.out.println("Đã tạo booking thành công");
+
                 check = false;
             } catch (DateTimeParseException e) {
                 System.out.println("Nhập sai định dạng ngày tháng năm, xin vui lòng nhập lại");

@@ -5,10 +5,24 @@ import _case_study.services.impl.*;
 import java.util.Scanner;
 
 public class FuramaController {
+    public static int choose = 0;
     public static Scanner sc = new Scanner(System.in);
 
+    public static int checkException(int inputChoose) {
+        boolean check = false;
+        do {
+            try {
+                inputChoose = Integer.parseInt(sc.nextLine());
+                check = false;
+            } catch (NumberFormatException e) {
+                System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại: ");
+                check = true;
+            }
+        } while (check);
+        return inputChoose;
+    }
+
     public static void displayMainMenu() {
-        int choose = 0;
         do {
             System.out.println("----------Menu Manager-----------");
             System.out.println("1. Employee Management");
@@ -19,18 +33,8 @@ public class FuramaController {
             System.out.println("6. Exit");
 
             System.out.println("--------Choose---------");
-            boolean check = false;
-            do {
-                try {
-                    choose = Integer.parseInt(sc.nextLine());
-                    check = false;
-                } catch (NumberFormatException e) {
-                    System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại: ");
-                    check = true;
-                }
-            } while (check);
 
-            switch (choose) {
+            switch (checkException(choose)) {
                 case 1:
                     displayEmployeeManagement();
                     break;
@@ -66,9 +70,8 @@ public class FuramaController {
             System.out.println("3. Edit employee");
             System.out.println("4. Return main menu");
             System.out.println("--------Choose---------");
-            int choose = Integer.parseInt(sc.nextLine());
 
-            switch (choose) {
+            switch (checkException(choose)) {
                 case 1:
                     System.out.println("------Display list employees-------");
                     employeeService.display();
@@ -84,6 +87,8 @@ public class FuramaController {
                 case 4:
                     displayMainMenu();
                     break;
+                default:
+                    System.out.println("Không có option này, xin vui lòng nhập lại");
             }
         } while (true);
     }
@@ -97,9 +102,8 @@ public class FuramaController {
             System.out.println("3. Edit customers");
             System.out.println("4. Return main menu");
             System.out.println("--------Choose---------");
-            int choose = Integer.parseInt(sc.nextLine());
 
-            switch (choose) {
+            switch (checkException(choose)) {
                 case 1:
                     System.out.println("------Display list employees-------");
                     customerService.display();
@@ -115,6 +119,8 @@ public class FuramaController {
                 case 4:
                     displayMainMenu();
                     break;
+                default:
+                    System.out.println("Không có option này, xin vui lòng nhập lại");
             }
         } while (true);
     }
@@ -128,9 +134,8 @@ public class FuramaController {
             System.out.println("3. Display list facility maintenance");
             System.out.println("4. Return main menu");
             System.out.println("--------Choose---------");
-            int choose = Integer.parseInt(sc.nextLine());
 
-            switch (choose) {
+            switch (checkException(choose)) {
                 case 1:
                     System.out.println("------Display list facility-------");
                     facilityService.display();
@@ -142,6 +147,8 @@ public class FuramaController {
                 case 4:
                     displayMainMenu();
                     break;
+                default:
+                    System.out.println("Không có option này, xin vui lòng nhập lại");
             }
         } while (true);
     }
@@ -155,9 +162,8 @@ public class FuramaController {
             System.out.println("3. Add new Room");
             System.out.println("4. Return main menu");
             System.out.println("--------Choose---------");
-            int choose = Integer.parseInt(sc.nextLine());
 
-            switch (choose) {
+            switch (checkException(choose)) {
                 case 1:
                     System.out.println("------Add new Villa-------");
                     facilityService.addNewVilla();
@@ -176,6 +182,8 @@ public class FuramaController {
                 case 4:
                     displayMainMenu();
                     break;
+                default:
+                    System.out.println("Không có option này, xin vui lòng nhập lại");
             }
         } while (true);
     }
@@ -192,9 +200,8 @@ public class FuramaController {
             System.out.println("5. Edit contracts");
             System.out.println("6. Return main menu");
             System.out.println("--------Choose---------");
-            int choose = Integer.parseInt(sc.nextLine());
 
-            switch (choose) {
+            switch (checkException(choose)) {
                 case 1:
                     System.out.println("--------Add new booking---------");
                     bookingService.addBooking();
@@ -213,6 +220,15 @@ public class FuramaController {
                     System.out.println("------Display list contracts-------");
                     contactService.displayListContract();
                     break;
+                case 5:
+                    System.out.println("------Edit contracts-------");
+                    contactService.editContract();
+                    break;
+                case 6:
+                    displayMainMenu();
+                    break;
+                default:
+                    System.out.println("Không có option này, xin vui lòng nhập lại");
             }
         } while (true);
     }
