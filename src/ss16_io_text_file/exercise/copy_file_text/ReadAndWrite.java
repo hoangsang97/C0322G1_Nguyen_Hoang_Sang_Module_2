@@ -7,16 +7,17 @@ import java.util.List;
 
 public class ReadAndWrite {
     public static void main(String[] args) {
-        Write("src/ss16_io_text_file/exercise/copy_file_text/product.csv", "HELLO word");
+        write("src/ss16_io_text_file/exercise/copy_file_text/product.csv", "HELLO word");
 
         List<String[]> listStr = read("src/ss16_io_text_file/test/product.csv");
 
-        for (String[] item: listStr) {
+        for (String[] item : listStr) {
             System.out.println(Arrays.toString(item));
-            Write("src/ss16_io_text_file/exercise/copy_file_text/product2.csv", Arrays.toString(item));
+            write("src/ss16_io_text_file/exercise/copy_file_text/product2.csv", Arrays.toString(item));
         }
     }
-    public static  void Write(String pathFile, String data) {
+
+    public static void write(String pathFile, String data) {
         File file = new File(pathFile);
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
@@ -48,7 +49,7 @@ public class ReadAndWrite {
             fileReader = new FileReader(file);
             bufferedReader = new BufferedReader(fileReader);
 
-            while ((line  =  bufferedReader.readLine()) != null) {
+            while ((line = bufferedReader.readLine()) != null) {
                 String[] arr = line.split(",");
                 list.add(arr);
             }

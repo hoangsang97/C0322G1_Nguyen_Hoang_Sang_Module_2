@@ -18,22 +18,30 @@ public class FacilityServiceImpl implements FacilityService {
     public static final String REGEX_INT = "^[1-9]|([1][0-9])$";
     public static final String REGEX_AREA = "^([3-9]\\d|[1-9]\\d{2,})$";
 
-    private static  Map<Integer, Facility> facilityIntegerMap = new LinkedHashMap<>();
-    private static Scanner scanner = new Scanner(System.in);
+    static Map<Facility, Integer> facilityIntegerMap = new LinkedHashMap<>();
+    static List<String[]> listLine = new ArrayList<>();
+    static Scanner scanner = new Scanner(System.in);
 
     @Override
     public void display() {
-        List<String[]> list = new ArrayList<>();
         facilityIntegerMap.clear();
-        for (String[] item: list) {
+        listLine = ReadAndWrite.readFile("src/_case_study/data/villa.csv");
+        for (String[] item: listLine) {
             Villa villa = new Villa(Integer.parseInt(item[0]), item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), Integer.parseInt(item[4]), item[5], item[6], Double.parseDouble(item[7]), Integer.parseInt(item[8]));
-            House house = new House(Integer.parseInt(item[0]), item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), Integer.parseInt(item[4]), item[5], item[6], Integer.parseInt(item[7]));
-            facilityIntegerMap.put(0, villa);
-            facilityIntegerMap.put(1, house);
+            facilityIntegerMap.put(villa, 0);
         }
-
-        for (Map.Entry<Integer, Facility> item : facilityIntegerMap.entrySet()) {
-            System.out.println("Service " + item.getValue() + " Số lần đã thuê: " + item.getKey());
+        listLine = ReadAndWrite.readFile("src/_case_study/data/house.csv");
+        for (String[] item: listLine) {
+            House house = new House(Integer.parseInt(item[0]), item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), Integer.parseInt(item[4]), item[5], item[6], Integer.parseInt(item[7]));
+            facilityIntegerMap.put(house, 0);
+        }
+        listLine = ReadAndWrite.readFile("src/_case_study/data/room.csv");
+        for (String[] item: listLine) {
+            Room room = new Room(Integer.parseInt(item[0]), item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), Integer.parseInt(item[4]), item[5], item[6]);
+            facilityIntegerMap.put(room, 0);
+        }
+        for (Map.Entry<Facility, Integer> item : facilityIntegerMap.entrySet()) {
+            System.out.println("Service " + item.getKey() + " Số lần đã thuê: " + item.getValue());
         }
     }
 
@@ -59,7 +67,7 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.println("Nhập số tầng");
         int floor = Integer.parseInt(scanner.nextLine());
         Villa villa = new Villa(id, name, area, price, people, renType, standard, areaPool, floor);
-        facilityIntegerMap.put(0, villa);
+//        facilityIntegerMap.put(0, villa);
         String line = villa.getIdFacility() + "," + villa.getNameService() + "," + villa.getAreaUse() + "," + villa.getRentalPrice() + "," + villa.getRentalPeopleMax() + "," + villa.getStyleRental() + "," + villa.getStandardVilla() + "," + villa.getAreaPool() + "," + villa.getFloor();
         ReadAndWrite.writeFile("src/_case_study/data/villa.csv", line);
         System.out.println("Đã thêm mới villa thành công");
@@ -100,7 +108,7 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.println("Nhập số tầng");
         int floor = Integer.parseInt(scanner.nextLine());
         House house = new House(id, name, area, price, people, renType, standard, floor);
-        facilityIntegerMap.put(0, house);
+//        facilityIntegerMap.put(0, house);
         String line = house.getIdFacility() + "," + house.getNameService() + "," + house.getAreaUse() + "," + house.getRentalPrice() + "," + house.getRentalPeopleMax() + "," + house.getStyleRental() + "," + house.getStandardHouse() + "," + house.getFloor();
         ReadAndWrite.writeFile("src/_case_study/data/house.csv", line);
         System.out.println("Đã thêm mới house thành công");
@@ -118,9 +126,9 @@ public class FacilityServiceImpl implements FacilityService {
         String renType = scanner.nextLine();
         System.out.println("Nhập Dịch vụ miễn phí");
         String freeService = scanner.nextLine();
-
         Room room = new Room(id, name, area, price, people, renType, freeService);
-        facilityIntegerMap.put(0, room);
+        String line = room.getIdFacility() + "," + room.getNameService() + "," + room.getAreaUse() + "," + room.getRentalPrice() + "," + room.getRentalPeopleMax() + "," + room.getStyleRental() + "," + room.getFreeService();
+        ReadAndWrite.writeFile("src/_case_study/data/room.csv", line);
         System.out.println("Đã thêm mới room thành công");
     }
 }
