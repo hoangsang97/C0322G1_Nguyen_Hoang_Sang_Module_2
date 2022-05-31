@@ -48,10 +48,7 @@ public class FuramaController {
                     displayBookingManagement();
                     break;
                 case 5:
-                    System.out.println("Promotion Management");
-                    System.out.println("1. Display list customers use service");
-                    System.out.println("2. Display list customers get voucher");
-                    System.out.println("3. Return main menu");
+                    displayPromotionManagement();
                     break;
                 case 6:
                     System.exit(0);
@@ -225,6 +222,33 @@ public class FuramaController {
                     contactService.editContract();
                     break;
                 case 6:
+                    displayMainMenu();
+                    break;
+                default:
+                    System.out.println("Không có option này, xin vui lòng nhập lại");
+            }
+        } while (true);
+    }
+
+    public static void displayPromotionManagement() {
+        PromotionServiceImpl promotionService = new PromotionServiceImpl();
+        do {
+            System.out.println("-------------Promotion Management------------");
+            System.out.println("1. Display list customers use service");
+            System.out.println("2. Display list customers get voucher");
+            System.out.println("3. Return main menu");
+            System.out.println("--------Choose---------");
+
+            switch (checkException(choose)) {
+                case 1:
+                    System.out.println("------Display list customers use service-------");
+                    promotionService.displayCustomerService();
+                    break;
+                case 2:
+                    System.out.println("------ Add new employee-------");
+                    promotionService.displayCustomerVoucher();
+                    break;
+                case 3:
                     displayMainMenu();
                     break;
                 default:

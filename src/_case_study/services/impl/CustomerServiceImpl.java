@@ -42,6 +42,7 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.println("Nhập Địa chỉ");
         String address = scanner.nextLine();
         int id = customerList.get(customerList.size() - 1).getId() + 1;
+
         Customer customer = new Customer(id, name, age, sex, idCard, email, typeCustomer, address);
         customerList.add(customer);
         String line = customer.getId() + "," + customer.getName() + "," + customer.getAge() + "," + customer.getSex() + "," + customer.getIdCard() + "," + customer.getEmail() + "," + customer.getTypeCustomer() + "," + customer.getAddress();
@@ -86,10 +87,5 @@ public class CustomerServiceImpl implements CustomerService {
         if (checkId == 0) {
             System.out.println("Không tìm thấy id");
         }
-    }
-
-    @Override
-    public void delete() {
-
     }
 }

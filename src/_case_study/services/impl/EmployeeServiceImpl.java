@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class EmployeeServiceImpl implements EmployeeService {
     private static List<Employee> employeeList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
-//    private static final String BIRTHDAY_REGEX = "(^(((0[1-9]|1[0-9]|2[0-8])[\\/](0[1-9]|1[012]))|((29|30|31)[\\/](0[13578]|1[02]))";
+    private static final String REGEX_BIRTHDAY = "^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$";
 
     @Override
     public void display() {
@@ -94,18 +94,5 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (checkId == 0) {
             System.out.println("Không tìm thấy id");
         }
-    }
-
-    public void levelEmployee() {
-        System.out.println("----------Các cấp bậc chức vụ--------");
-        System.out.println("1. Trung cấp");
-        System.out.println("2. Cao đẳng");
-        System.out.println("3. Đại học ");
-        System.out.println("4. sau đại học");
-    }
-
-    @Override
-    public void delete() {
-
     }
 }
