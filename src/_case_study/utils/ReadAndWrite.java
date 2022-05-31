@@ -14,7 +14,6 @@ public class ReadAndWrite {
             fileWriter = new FileWriter(file, true);
             bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(data);
-            bufferedWriter.newLine();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
