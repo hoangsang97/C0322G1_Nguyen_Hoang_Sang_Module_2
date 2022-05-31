@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ValidatePhone {
-    private static final String ACCOUNT_REGEX = "^[_a-z0-9]{6,}$";
+    private static final String ACCOUNT_REGEX = "^(d{2})-(d{10})$";
 
     public ValidatePhone() {
     }

@@ -14,7 +14,7 @@ public class ValidateClass {
      * Kết thúc phải là 1 trong những ký tự chữ hoa sau: G, H, I, K, L, M
      */
 
-    private static final String CLASS_REGEX = "^[_a-z0-9]{6,}$";
+    private static final String CLASS_REGEX = "^[A|C|P]([0-9]{4})[GHIKLM]$";
 
     public ValidateClass() {
     }
