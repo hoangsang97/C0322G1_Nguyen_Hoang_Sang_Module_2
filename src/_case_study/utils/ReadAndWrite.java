@@ -11,7 +11,7 @@ public class ReadAndWrite {
         BufferedWriter bufferedWriter = null;
 
         try {
-            fileWriter = new FileWriter(file, true);
+            fileWriter = new FileWriter(file, false);
             bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(data);
         } catch (IOException e) {

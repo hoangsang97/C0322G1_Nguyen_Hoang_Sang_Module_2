@@ -1,6 +1,7 @@
 package _case_study.models.person;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 public class Employee extends Person implements Serializable {
     private String level;
@@ -9,6 +10,14 @@ public class Employee extends Person implements Serializable {
     private String dateOfBirth;
 
     public Employee() {
+    }
+
+    @Override
+    public String getInfo() {
+        return String.format("%s, %s, %s, %s, %s, %s, %s, %s, %s, %s",
+                super.getId(), super.getName(), super.getAge(), super.getSex(),
+                super.getIdCard(), super.getEmail(),
+                this.getLevel(), this.getPosition(), new BigDecimal(getSalary()));
     }
 
     public Employee(int id, String name, int age, String sex, String idCard, String email, String level, String position, int salary) {

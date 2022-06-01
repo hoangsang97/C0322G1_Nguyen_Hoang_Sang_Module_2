@@ -13,6 +13,8 @@ public abstract class Person implements Serializable {
     public Person() {
     }
 
+    public abstract String getInfo();
+
     public Person(int id, String name, int age, String sex, String idCard, String email) {
         this.id = id;
         this.name = name;

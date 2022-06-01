@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService {
     private static List<Employee> employeeList = new ArrayList<>();
+    static List<String> stringList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
     private static final String REGEX_BIRTHDAY = "^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$";
 
@@ -17,7 +18,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void display() {
         List<String[]> list = ReadAndWrite.readFile("src/_case_study/data/employee.csv");
         employeeList.clear();
-        for (String[] item: list) {
+        for (String[] item : list) {
             Employee employee = new Employee(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), item[3], item[4], item[5], item[6], item[7], Integer.parseInt(item[8]));
             employeeList.add(employee);
         }
@@ -29,6 +30,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void addNew() {
+        List<String[]> list = ReadAndWrite.readFile("src/_case_study/data/employee.csv");
+        String line = "";
+        stringList.clear();
+        employeeList.clear();
+        for (String[] item : list) {
+            Employee employee = new Employee(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), item[3], item[4], item[5], item[6], item[7], Integer.parseInt(item[8]));
+            employeeList.add(employee);
+        }
         System.out.println("Nhập tên");
         String name = scanner.nextLine();
         System.out.println("Nhập tuổi");
@@ -48,13 +57,32 @@ public class EmployeeServiceImpl implements EmployeeService {
         int id = employeeList.get(employeeList.size() - 1).getId() + 1;
         Employee employee = new Employee(id, name, age, sex, idCard, email, level, position, salary);
         employeeList.add(employee);
-        String line = employee.getId() + "," + employee.getName() + "," + employee.getAge() + "," + employee.getSex() + "," + employee.getIdCard() + "," + employee.getEmail() + "," + employee.getLevel() + "," + employee.getPosition() + "," + employee.getSalary();
-        ReadAndWrite.writeFile("src/_case_study/data/employee.csv", line);
         System.out.println("Đã thêm thành công");
+
+        for (Employee item : employeeList) {
+            line = item.getId() + "," + item.getName() + "," + item.getAge() + "," + item.getSex() + "," + item.getIdCard() + "," + item.getEmail() + "," + item.getLevel() + "," + item.getPosition() + "," + item.getSalary();
+            stringList.add(line);
+        }
+
+        String str = "";
+        for (String item : stringList) {
+            str += item + "\n";
+        }
+        ReadAndWrite.writeFile("src/_case_study/data/employee.csv", str);
     }
 
     @Override
     public void edit() {
+        List<String[]> list = ReadAndWrite.readFile("src/_case_study/data/employee.csv");
+        String line = "";
+        stringList.clear();
+        employeeList.clear();
+
+        for (String[] item : list) {
+            Employee employee = new Employee(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), item[3], item[4], item[5], item[6], item[7], Integer.parseInt(item[8]));
+            employeeList.add(employee);
+        }
+
         int checkId = 0;
         System.out.println("Nhập id muốn sửa: ");
         int inputId = Integer.parseInt(scanner.nextLine());
@@ -93,5 +121,16 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (checkId == 0) {
             System.out.println("Không tìm thấy id");
         }
+
+        for (Employee item : employeeList) {
+            line = item.getId() + "," + item.getName() + "," + item.getAge() + "," + item.getSex() + "," + item.getIdCard() + "," + item.getEmail() + "," + item.getLevel() + "," + item.getPosition() + "," + item.getSalary();
+            stringList.add(line);
+        }
+
+        String str = "";
+        for (String item : stringList) {
+            str += item + "\n";
+        }
+        ReadAndWrite.writeFile("src/_case_study/data/employee.csv", str);
     }
 }

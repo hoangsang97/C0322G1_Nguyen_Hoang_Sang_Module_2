@@ -4,6 +4,7 @@ import _case_study.models.person.Customer;
 import _case_study.services.CustomerService;
 import _case_study.utils.ReadAndWrite;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,6 +12,8 @@ import java.util.Scanner;
 public class CustomerServiceImpl implements CustomerService {
     private static List<Customer> customerList = new LinkedList<>();
     private static Scanner scanner = new Scanner(System.in);
+
+    static List<String> stringList = new ArrayList<>();
 
     @Override
     public void display() {
@@ -27,6 +30,14 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void addNew() {
+        List<String[]> list = ReadAndWrite.readFile("src/_case_study/data/customer.csv");
+        String line = "";
+        stringList.clear();
+        customerList.clear();
+        for (String[] item : list) {
+            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), item[3], item[4], item[5], item[6], item[7]);
+            customerList.add(customer);
+        }
         System.out.println("Nhập tên");
         String name = scanner.nextLine();
         System.out.println("Nhập tuổi");
@@ -45,13 +56,32 @@ public class CustomerServiceImpl implements CustomerService {
 
         Customer customer = new Customer(id, name, age, sex, idCard, email, typeCustomer, address);
         customerList.add(customer);
-        String line = customer.getId() + "," + customer.getName() + "," + customer.getAge() + "," + customer.getSex() + "," + customer.getIdCard() + "," + customer.getEmail() + "," + customer.getTypeCustomer() + "," + customer.getAddress();
-        ReadAndWrite.writeFile("src/_case_study/data/customer.csv", line);
         System.out.println("Đã thêm khách hàng thành công");
+
+        for (Customer item : customerList) {
+            line = item.getId() + "," + item.getName() + "," + item.getAge() + "," + item.getSex() + "," + item.getIdCard() + "," + item.getEmail() + "," + item.getTypeCustomer() + "," + item.getAddress();
+            stringList.add(line);
+        }
+
+        String str = "";
+        for (String item : stringList) {
+            str += item + "\n";
+        }
+        ReadAndWrite.writeFile("src/_case_study/data/customer.csv", str);
     }
 
     @Override
     public void edit() {
+        List<String[]> list = ReadAndWrite.readFile("src/_case_study/data/customer.csv");
+        String line = "";
+        stringList.clear();
+        customerList.clear();
+
+        for (String[] item : list) {
+            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), item[3], item[4], item[5], item[6], item[7]);
+            customerList.add(customer);
+        }
+
         int checkId = 0;
         System.out.println("Nhập id muốn sửa: ");
         int inputId = Integer.parseInt(scanner.nextLine());
@@ -84,8 +114,20 @@ public class CustomerServiceImpl implements CustomerService {
                 checkId++;
             }
         }
+
         if (checkId == 0) {
             System.out.println("Không tìm thấy id");
         }
+
+        for (Customer item : customerList) {
+            line = item.getId() + "," + item.getName() + "," + item.getAge() + "," + item.getSex() + "," + item.getIdCard() + "," + item.getEmail() + "," + item.getTypeCustomer() + "," + item.getAddress();
+            stringList.add(line);
+        }
+
+        String str = "";
+        for (String item : stringList) {
+            str += item + "\n";
+        }
+        ReadAndWrite.writeFile("src/_case_study/data/customer.csv", str);
     }
 }

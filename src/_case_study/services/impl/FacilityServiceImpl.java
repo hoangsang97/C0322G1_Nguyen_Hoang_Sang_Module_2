@@ -29,17 +29,17 @@ public class FacilityServiceImpl implements FacilityService {
         facilityIntegerMap.clear();
         listLine = ReadAndWrite.readFile("src/_case_study/data/villa.csv");
         for (String[] item: listLine) {
-            Villa villa = new Villa(Integer.parseInt(item[0]), item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), Integer.parseInt(item[4]), item[5], item[6], Double.parseDouble(item[7]), Integer.parseInt(item[8]) );
+            Villa villa = new Villa(item[0], item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), Integer.parseInt(item[4]), item[5], item[6], Double.parseDouble(item[7]), Integer.parseInt(item[8]));
             facilityIntegerMap.put(villa, Integer.parseInt(item[9]));
         }
         listLine = ReadAndWrite.readFile("src/_case_study/data/house.csv");
         for (String[] item: listLine) {
-            House house = new House(Integer.parseInt(item[0]), item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), Integer.parseInt(item[4]), item[5], item[6], Integer.parseInt(item[7]));
+            House house = new House(item[0], item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), Integer.parseInt(item[4]), item[5], item[6], Integer.parseInt(item[7]));
             facilityIntegerMap.put(house, Integer.parseInt(item[8]));
         }
         listLine = ReadAndWrite.readFile("src/_case_study/data/room.csv");
         for (String[] item: listLine) {
-            Room room = new Room(Integer.parseInt(item[0]), item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), Integer.parseInt(item[4]), item[5], item[6]);
+            Room room = new Room(item[0], item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), Integer.parseInt(item[4]), item[5], item[6]);
             facilityIntegerMap.put(room, Integer.parseInt(item[7]));
         }
         for (Map.Entry<Facility, Integer> item : facilityIntegerMap.entrySet()) {
@@ -54,7 +54,7 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void addNewVilla() {
-        int id = Integer.parseInt(inputIdVilla());
+        String id = inputIdVilla();
         String name = inputName();
         double area = Double.parseDouble(inputArea());
         int price = Integer.parseInt(inputTotalPay());
@@ -72,7 +72,7 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void addNewHouse() {
-        int id = Integer.parseInt(inputIdHouse());
+        String id = inputIdHouse();
         String name = inputName();
         double area = Double.parseDouble(inputArea());
         int price = Integer.parseInt(inputTotalPay());
@@ -89,7 +89,7 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void addNewRoom() {
-        int id = Integer.parseInt(inputIdRoom());
+        String id = inputIdRoom();
         String name = inputName();
         double area = Double.parseDouble(inputArea());
         int price = Integer.parseInt(inputTotalPay());

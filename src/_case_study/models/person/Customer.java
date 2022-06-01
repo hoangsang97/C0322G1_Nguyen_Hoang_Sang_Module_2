@@ -7,6 +7,11 @@ public class Customer extends Person{
     public Customer() {
     }
 
+    @Override
+    public String getInfo() {
+        return null;
+    }
+
     public Customer(int id, String name, int age, String sex, String idCard, String email, String typeCustomer, String address) {
         super(id, name, age, sex, idCard, email);
         this.typeCustomer = typeCustomer;
