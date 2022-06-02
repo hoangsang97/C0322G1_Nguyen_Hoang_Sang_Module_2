@@ -188,12 +188,7 @@ public class BookingServiceImpl implements BookingService {
         listLine = ReadAndWrite.readFile("src/_case_study/data/villa.csv");
         facilityMap.clear();
         for (String[] item : listLine) {
-            Villa villa = new Villa(item[0], item[1],
-                    Double.parseDouble(item[2]),
-                    Integer.parseInt(item[3]),
-                    Integer.parseInt(item[4]), item[5], item[6],
-                    Double.parseDouble(item[7]),
-                    Integer.parseInt(item[8]));
+            Villa villa = new Villa(item[0], item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), Integer.parseInt(item[4]), item[5], item[6], Double.parseDouble(item[7]), Integer.parseInt(item[8]));
             facilityMap.put(villa, Integer.parseInt(item[9]));
         }
         listLine = ReadAndWrite.readFile("src/_case_study/data/house.csv");
