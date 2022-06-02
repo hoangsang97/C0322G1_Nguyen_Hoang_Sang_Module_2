@@ -57,4 +57,6 @@ public abstract class Person {
                 ", sex='" + sex + '\'' +
                 '}';
     }
+
+    public abstract String getInfo();
 }

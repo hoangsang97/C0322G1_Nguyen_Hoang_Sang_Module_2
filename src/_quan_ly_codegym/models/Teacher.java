@@ -25,4 +25,9 @@ public class Teacher extends Person{
                 "regular='" + regular + '\'' +
                 '}';
     }
+
+    @Override
+    public String getInfo() {
+        return "1";
+    }
 }

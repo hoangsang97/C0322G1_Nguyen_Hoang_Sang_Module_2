@@ -1,17 +1,17 @@
 package _quan_ly_codegym.services.impl;
 
 import _quan_ly_codegym.models.Student;
-import _quan_ly_codegym.services.StudentService;
+import _quan_ly_codegym.models.Teacher;
+import _quan_ly_codegym.services.Person;
+import _quan_ly_codegym.services.TeacherService;
 import _quan_ly_codegym.utils.ReadAndWrite;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-public class StudentServiceImpl implements StudentService {
+public class TeacherServiceImpl implements TeacherService {
     static Scanner scanner =  new Scanner(System.in);
 
-    static List<Student> studentList = new ArrayList<>();
+    static List<Teacher> teacherList = new LinkedList<>();
 
     @Override
     public void addNew() {
@@ -23,63 +23,61 @@ public class StudentServiceImpl implements StudentService {
         String dateOfBirth = scanner.nextLine();
         System.out.println("Nhập giới tính: ");
         String sex = scanner.nextLine();
-        System.out.println("Nhập tên lớp: ");
-        String className = scanner.nextLine();
-        System.out.println("Nhập điểm: ");
-        int point = Integer.parseInt(scanner.nextLine());
+        System.out.println("Nhập chuyên môn: ");
+        String regular = scanner.nextLine();
 
-        Student student = new Student(id, name, dateOfBirth, sex, className, point);
-        studentList.add(student);
+        Teacher teacher = new Teacher(id, name, dateOfBirth, sex, regular);
+        teacherList.add(teacher);
         System.out.println("thêm mới thành công!");
 
-        ReadAndWrite.writeStudent("src/_quan_ly_codegym/data/saving.csv", studentList);
+        ReadAndWrite.writeTeacher("src/_quan_ly_codegym/data/teacher.csv", teacherList);
     }
 
     @Override
     public void delete() {
-        studentList.clear();
+        teacherList.clear();
 
-        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/saving.csv", studentList);
+        ReadAndWrite.readTeacher("src/_quan_ly_codegym/data/teacher.csv", teacherList);
 
-        for (Student item: studentList) {
+        for (Teacher item: teacherList) {
             System.out.println(item);
         }
 
         System.out.println("nhập id muốn xóa: ");
         String id = scanner.nextLine();
-        studentList.removeIf(item -> id.equals(item.getId()));
+        teacherList.removeIf(item -> id.equals(item.getId()));
 
         System.out.println("đã xóa thành công");
 
-        ReadAndWrite.writeStudent("src/_quan_ly_codegym/data/saving.csv", studentList);
+        ReadAndWrite.writeTeacher("src/_quan_ly_codegym/data/teacher.csv", teacherList);
     }
 
     @Override
     public void view() {
-        studentList.clear();
+        teacherList.clear();
 
-        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/saving.csv", studentList);
+        ReadAndWrite.readTeacher("src/_quan_ly_codegym/data/teacher.csv", teacherList);
 
-        for (Student item: studentList) {
+        for (Teacher item: teacherList) {
             System.out.println(item);
         }
     }
 
     @Override
     public void search() {
-        studentList.clear();
+        teacherList.clear();
 
-        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/saving.csv", studentList);
+        ReadAndWrite.writeTeacher("src/_quan_ly_codegym/data/teacher.csv", teacherList);
 
         System.out.println("Nhập tên học sinh muốn tìm: ");
         String name = scanner.nextLine();
 
         boolean flag = false;
-        for (Student item: studentList) {
+        for (Teacher item: teacherList) {
             if (name.contains(item.getName())) {
                 System.out.println(item);
             } else {
-               flag = true;
+                flag = true;
             }
         }
 

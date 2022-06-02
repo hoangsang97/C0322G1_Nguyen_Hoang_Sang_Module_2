@@ -36,4 +36,15 @@ public class Student extends Person{
                 ", point=" + point +
                 '}';
     }
+
+    @Override
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s,%s",
+                super.getId(),
+                super.getName(),
+                super.getDateOfBirth(),
+                super.getSex(),
+                this.getClassName(),
+                this.getPoint());
+    }
 }
