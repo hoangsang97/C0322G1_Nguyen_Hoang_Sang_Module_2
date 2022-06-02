@@ -49,7 +49,27 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void displayMaintain() {
-
+        facilityIntegerMap.clear();
+        listLine = ReadAndWrite.readFile("src/_case_study/data/villa.csv");
+        for (String[] item: listLine) {
+            Villa villa = new Villa(item[0], item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), Integer.parseInt(item[4]), item[5], item[6], Double.parseDouble(item[7]), Integer.parseInt(item[8]));
+            facilityIntegerMap.put(villa, Integer.parseInt(item[9]));
+        }
+        listLine = ReadAndWrite.readFile("src/_case_study/data/house.csv");
+        for (String[] item: listLine) {
+            House house = new House(item[0], item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), Integer.parseInt(item[4]), item[5], item[6], Integer.parseInt(item[7]));
+            facilityIntegerMap.put(house, Integer.parseInt(item[8]));
+        }
+        listLine = ReadAndWrite.readFile("src/_case_study/data/room.csv");
+        for (String[] item: listLine) {
+            Room room = new Room(item[0], item[1], Double.parseDouble(item[2]), Integer.parseInt(item[3]), Integer.parseInt(item[4]), item[5], item[6]);
+            facilityIntegerMap.put(room, Integer.parseInt(item[7]));
+        }
+        for (Map.Entry<Facility, Integer> item : facilityIntegerMap.entrySet()) {
+            if (item.getValue() >= 5) {
+                System.out.println(item.getKey() + " Số lần đã thuê: " + item.getValue() + " Đang bảo trì hệ thống");
+            }
+        }
     }
 
     @Override
@@ -106,17 +126,17 @@ public class FacilityServiceImpl implements FacilityService {
 
     private String inputIdVilla() {
         System.out.println("Nhập id");
-        return RegexData.regexStr(scanner.nextLine(), REGEX_ID_VILLA, "Bạn đã nhập sai định dạng, mã định dạng phải có dạng là SVVL-XXXX");
+        return RegexData.regexIdVilla(REGEX_ID_VILLA);
     }
 
     private String inputIdHouse() {
         System.out.println("Nhập id");
-        return RegexData.regexStr(scanner.nextLine(), REGEX_ID_HOUSE, "Bạn đã nhập sai định dạng, mã định dạng phải có dạng là SVHO-XXXX");
+        return RegexData.regexIdHouse(REGEX_ID_HOUSE);
     }
 
     private String inputIdRoom() {
         System.out.println("Nhập id");
-        return RegexData.regexStr(scanner.nextLine(), REGEX_ID_ROOM, "Bạn đã nhập sai định dạng, mã định dạng phải có dạng là SVRO-XXXX");
+        return RegexData.regexIdRoom(REGEX_ID_ROOM);
     }
 
     private String inputName() {

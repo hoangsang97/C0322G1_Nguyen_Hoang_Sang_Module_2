@@ -7,33 +7,23 @@ public class Employee extends Person implements Serializable {
     private String level;
     private String position;
     private int salary;
-    private String dateOfBirth;
 
     public Employee() {
     }
 
     @Override
     public String getInfo() {
-        return String.format("%s, %s, %s, %s, %s, %s, %s, %s, %s, %s",
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s",
                 super.getId(), super.getName(), super.getAge(), super.getSex(),
                 super.getIdCard(), super.getEmail(),
                 this.getLevel(), this.getPosition(), new BigDecimal(getSalary()));
     }
 
-    public Employee(int id, String name, int age, String sex, String idCard, String email, String level, String position, int salary) {
+    public Employee(int id, String name, String age, String sex, String idCard, String email, String level, String position, int salary) {
         super(id, name, age, sex, idCard, email);
         this.level = level;
         this.position = position;
         this.salary = salary;
-    }
-
-
-    public Employee(int id, String name, String sex, String idCard, String email, String level, String position, int salary, String dateOfBirth) {
-        super(id, name, sex, idCard, email);
-        this.level = level;
-        this.position = position;
-        this.salary = salary;
-        this.dateOfBirth = dateOfBirth;
     }
 
     public Employee(String level, String position, int salary) {
@@ -64,14 +54,6 @@ public class Employee extends Person implements Serializable {
 
     public void setSalary(int salary) {
         this.salary = salary;
-    }
-
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
     }
 
     @Override

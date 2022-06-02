@@ -20,7 +20,7 @@ public class CustomerServiceImpl implements CustomerService {
         List<String[]> lineString = ReadAndWrite.readFile("src/_case_study/data/customer.csv");
         customerList.clear();
         for (String[] item : lineString) {
-            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), item[3], item[4], item[5], item[6], item[7]);
+            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], item[2], item[3], item[4], item[5], item[6], item[7]);
             customerList.add(customer);
         }
         for (Customer item : customerList) {
@@ -35,13 +35,13 @@ public class CustomerServiceImpl implements CustomerService {
         stringList.clear();
         customerList.clear();
         for (String[] item : list) {
-            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), item[3], item[4], item[5], item[6], item[7]);
+            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], item[2], item[3], item[4], item[5], item[6], item[7]);
             customerList.add(customer);
         }
         System.out.println("Nhập tên");
         String name = scanner.nextLine();
         System.out.println("Nhập tuổi");
-        int age = Integer.parseInt(scanner.nextLine());
+        String age = scanner.nextLine();
         System.out.println("Nhập giới tính");
         String sex = scanner.nextLine();
         System.out.println("Nhập chứng minh");
@@ -78,7 +78,7 @@ public class CustomerServiceImpl implements CustomerService {
         customerList.clear();
 
         for (String[] item : list) {
-            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), item[3], item[4], item[5], item[6], item[7]);
+            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], item[2], item[3], item[4], item[5], item[6], item[7]);
             customerList.add(customer);
         }
 
@@ -90,7 +90,7 @@ public class CustomerServiceImpl implements CustomerService {
                 System.out.println("Nhập tên");
                 String name = scanner.nextLine();
                 System.out.println("Nhập tuổi");
-                int age = Integer.parseInt(scanner.nextLine());
+                String age = scanner.nextLine();
                 System.out.println("Nhập giới tính");
                 String sex = scanner.nextLine();
                 System.out.println("Nhập chứng minh");

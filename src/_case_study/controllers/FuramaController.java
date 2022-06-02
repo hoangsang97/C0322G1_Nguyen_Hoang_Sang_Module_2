@@ -141,6 +141,10 @@ public class FuramaController {
                     System.out.println("--------Add new facility---------");
                     addNewFacilityManagement();
                     break;
+                case 3:
+                    System.out.println("--------Display list facility maintenance---------");
+                    facilityService.displayMaintain();
+                    break;
                 case 4:
                     displayMainMenu();
                     break;
@@ -255,9 +259,5 @@ public class FuramaController {
                     System.out.println("Không có option này, xin vui lòng nhập lại");
             }
         } while (true);
-    }
-
-    public static void main(String[] args) {
-        displayMainMenu();
     }
 }

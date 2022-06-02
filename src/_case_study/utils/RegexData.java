@@ -1,5 +1,9 @@
 package _case_study.utils;
 
+import _case_study.Exception.InvalidIdHouseException;
+import _case_study.Exception.InvalidIdRoomException;
+import _case_study.Exception.InvalidIdVillaException;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -16,6 +20,60 @@ public class RegexData {
             } else {
                 System.out.println(error);
                 temp = scanner.nextLine();
+            }
+        } while (check);
+        return temp;
+    }
+
+    public static String regexIdVilla(String regex) {
+        boolean check = true;
+        String temp = null;
+        do {
+            temp = scanner.nextLine();
+            check = false;
+            try {
+                if (!temp.matches(regex)) {
+                    check = true;
+                    throw new InvalidIdVillaException("Bạn đã nhập sai mã định dạng. Mã định dạng phải là SVVL-XXXX");
+                }
+            } catch (InvalidIdVillaException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (check);
+        return temp;
+    }
+
+    public static String regexIdHouse(String regex) {
+        boolean check = true;
+        String temp;
+        do {
+            temp = scanner.nextLine();
+            check = false;
+            try {
+                if (!temp.matches(regex)) {
+                    check = true;
+                    throw new InvalidIdHouseException("Bạn đã nhập sai mã định dạng. Mã định dạng phải là SVHO-XXXX");
+                }
+            } catch (InvalidIdHouseException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (check);
+        return temp;
+    }
+
+    public static String regexIdRoom(String regex) {
+        boolean check = true;
+        String temp;
+        do {
+            temp = scanner.nextLine();
+            check = false;
+            try {
+                if (!temp.matches(regex)) {
+                    check = true;
+                    throw new InvalidIdRoomException("Bạn đã nhập sai mã định dạng. Mã định dạng phải là SVRO-XXXX");
+                }
+            } catch (InvalidIdRoomException e) {
+                System.out.println(e.getMessage());
             }
         } while (check);
         return temp;
