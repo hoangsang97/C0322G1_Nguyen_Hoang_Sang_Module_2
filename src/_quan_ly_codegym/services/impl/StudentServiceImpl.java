@@ -3,6 +3,7 @@ package _quan_ly_codegym.services.impl;
 import _quan_ly_codegym.models.Student;
 import _quan_ly_codegym.services.StudentService;
 import _quan_ly_codegym.utils.ReadAndWrite;
+import _quan_ly_codegym.utils.RegexData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,16 +14,35 @@ public class StudentServiceImpl implements StudentService {
 
     static List<Student> studentList = new ArrayList<>();
 
+    static final String REGEX_SEX = "^(nam|nu|khac)$";
+
+    public static final String REGEX_ID_STUDENT = "(SV)[-][\\d]{4}";
+
+    private static final String REGEX_BIRTHDAY = "^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$";
+
     @Override
     public void addNew() {
-        System.out.println("Nhập ID: ");
-        String id = scanner.nextLine();
+        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/student.csv", studentList);
+        String id;
+        boolean checkId = true;
+        do {
+            System.out.println("Nhập ID: ");
+            id = RegexData.regexStudent(REGEX_ID_STUDENT);
+            checkId = false;
+            for (Student item: studentList) {
+                if (item.getId().equals(id)) {
+                    System.out.println("id đã bị trùng, xin hãy nhập lại");
+                    checkId = true;
+                }
+            }
+        }while (checkId);
+
         System.out.println("Nhập Tên: ");
         String name = scanner.nextLine();
         System.out.println("Nhập ngày tháng năm sinh (dd/MM/yyyy): ");
-        String dateOfBirth = scanner.nextLine();
+        String dateOfBirth = RegexData.regexAge(scanner.nextLine(), REGEX_BIRTHDAY);
         System.out.println("Nhập giới tính: ");
-        String sex = scanner.nextLine();
+        String sex = RegexData.regexSex(REGEX_SEX);
         System.out.println("Nhập tên lớp: ");
         String className = scanner.nextLine();
         System.out.println("Nhập điểm: ");
@@ -32,14 +52,14 @@ public class StudentServiceImpl implements StudentService {
         studentList.add(student);
         System.out.println("thêm mới thành công!");
 
-        ReadAndWrite.writeStudent("src/_quan_ly_codegym/data/saving.csv", studentList);
+        ReadAndWrite.writeStudent("src/_quan_ly_codegym/data/student.csv", studentList);
     }
 
     @Override
     public void delete() {
         studentList.clear();
 
-        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/saving.csv", studentList);
+        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/student.csv", studentList);
 
         for (Student item: studentList) {
             System.out.println(item);
@@ -51,14 +71,14 @@ public class StudentServiceImpl implements StudentService {
 
         System.out.println("đã xóa thành công");
 
-        ReadAndWrite.writeStudent("src/_quan_ly_codegym/data/saving.csv", studentList);
+        ReadAndWrite.writeStudent("src/_quan_ly_codegym/data/student.csv", studentList);
     }
 
     @Override
     public void view() {
         studentList.clear();
 
-        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/saving.csv", studentList);
+        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/student.csv", studentList);
 
         for (Student item: studentList) {
             System.out.println(item);
@@ -69,7 +89,7 @@ public class StudentServiceImpl implements StudentService {
     public void search() {
         studentList.clear();
 
-        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/saving.csv", studentList);
+        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/student.csv", studentList);
 
         System.out.println("Nhập tên học sinh muốn tìm: ");
         String name = scanner.nextLine();

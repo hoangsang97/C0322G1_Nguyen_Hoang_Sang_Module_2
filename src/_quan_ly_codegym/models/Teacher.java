@@ -28,6 +28,11 @@ public class Teacher extends Person{
 
     @Override
     public String getInfo() {
-        return "1";
+        return String.format("%s,%s,%s,%s,%s",
+                super.getId(),
+                super.getName(),
+                super.getDateOfBirth(),
+                super.getSex(),
+                this.getRegular());
     }
 }

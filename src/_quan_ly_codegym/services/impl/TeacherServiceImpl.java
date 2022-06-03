@@ -5,6 +5,7 @@ import _quan_ly_codegym.models.Teacher;
 import _quan_ly_codegym.services.Person;
 import _quan_ly_codegym.services.TeacherService;
 import _quan_ly_codegym.utils.ReadAndWrite;
+import _quan_ly_codegym.utils.RegexData;
 
 import java.util.*;
 
@@ -13,16 +14,35 @@ public class TeacherServiceImpl implements TeacherService {
 
     static List<Teacher> teacherList = new LinkedList<>();
 
+    private static final String REGEX_BIRTHDAY = "^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$";
+
+    static final String REGEX_SEX = "^(nam|nu|khac)$";
+
+    public static final String REGEX_ID_STUDENT = "(SV)[-][\\d]{4}";
+
     @Override
     public void addNew() {
-        System.out.println("Nhập ID: ");
-        String id = scanner.nextLine();
+        ReadAndWrite.readTeacher("src/_quan_ly_codegym/data/student.csv", teacherList);
+        String id;
+        boolean checkId = true;
+        do {
+            System.out.println("Nhập ID: ");
+            id = RegexData.regexStudent(REGEX_ID_STUDENT);
+            checkId = false;
+            for (Teacher item: teacherList) {
+                if (item.getId().equals(id)) {
+                    System.out.println("id đã bị trùng, xin hãy nhập lại");
+                    checkId = true;
+                }
+            }
+        }while (checkId);
+
         System.out.println("Nhập Tên: ");
         String name = scanner.nextLine();
         System.out.println("Nhập ngày tháng năm sinh (dd/MM/yyyy): ");
         String dateOfBirth = scanner.nextLine();
         System.out.println("Nhập giới tính: ");
-        String sex = scanner.nextLine();
+        String sex = RegexData.regexSex(REGEX_SEX);
         System.out.println("Nhập chuyên môn: ");
         String regular = scanner.nextLine();
 
@@ -69,7 +89,7 @@ public class TeacherServiceImpl implements TeacherService {
 
         ReadAndWrite.writeTeacher("src/_quan_ly_codegym/data/teacher.csv", teacherList);
 
-        System.out.println("Nhập tên học sinh muốn tìm: ");
+        System.out.println("Nhập tên giáo viên muốn tìm: ");
         String name = scanner.nextLine();
 
         boolean flag = false;
@@ -82,7 +102,7 @@ public class TeacherServiceImpl implements TeacherService {
         }
 
         if (flag) {
-            System.out.println("Không tìm thấy tên học sinh");
+            System.out.println("Không tìm thấy tên giáo viên");
         }
     }
 }

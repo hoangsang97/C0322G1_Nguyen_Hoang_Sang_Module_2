@@ -1,6 +1,7 @@
 package _quan_ly_codegym.controllers;
 
 import _quan_ly_codegym.services.impl.StudentServiceImpl;
+import _quan_ly_codegym.services.impl.TeacherServiceImpl;
 
 import java.util.Scanner;
 
@@ -10,6 +11,8 @@ public class ManageCodeGym {
     static Scanner scanner = new Scanner(System.in);
 
     static StudentServiceImpl studentService = new StudentServiceImpl();
+
+    static TeacherServiceImpl teacherService = new TeacherServiceImpl();
 
     public static void disPlayManageCodeGym() {
         do {
@@ -57,6 +60,7 @@ public class ManageCodeGym {
                     break;
                 case 2:
                     System.out.println("Thêm mới giảng viên");
+                    teacherService.addNew();
                     break;
                 case 3:
                     disPlayManageCodeGym();
@@ -82,6 +86,7 @@ public class ManageCodeGym {
                     break;
                 case 2:
                     System.out.println("danh sách giảng viên");
+                    teacherService.delete();
                     break;
                 case 3:
                     disPlayManageCodeGym();
@@ -106,6 +111,7 @@ public class ManageCodeGym {
                     break;
                 case 2:
                     System.out.println("danh sách giảng viên");
+                    teacherService.view();
                     break;
                 case 3:
                     disPlayManageCodeGym();
@@ -130,6 +136,7 @@ public class ManageCodeGym {
                     break;
                 case 2:
                     System.out.println("tìm kiếm giảng viên");
+                    teacherService.search();
                     break;
                 case 3:
                     disPlayManageCodeGym();
