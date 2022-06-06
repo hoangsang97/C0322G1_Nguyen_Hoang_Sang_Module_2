@@ -15,7 +15,9 @@ import java.util.*;
 
 public class ContactServiceImpl implements ContactService {
     static List<Contract> contractList = new ArrayList<>();
+
     static Queue<Booking> bookingQueue = new LinkedList<>();
+
     static Set<Booking> bookingSet = new BookingServiceImpl().sendBooking();
 
     static List<String[]> listLine = new ArrayList<>();
@@ -28,9 +30,8 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public void createNewContract() {
-        for (Booking item : bookingSet) {
-            bookingQueue.add(item);
-        }
+        bookingQueue.addAll(bookingSet);
+
         String lineList = null;
         while (!bookingQueue.isEmpty()) {
             Booking booking = bookingQueue.poll();
@@ -58,8 +59,11 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public void displayListContract() {
         listLine = ReadAndWrite.readFile("src/_case_study/data/customer.csv");
+
         customerList.clear();
+
         Customer customer = null;
+
         for (String[] item : listLine) {
             customer = new Customer(Integer.parseInt(item[0]), item[1], item[2], item[3], item[4], item[5], item[6], item[7]);
             customerList.add(customer);

@@ -70,6 +70,7 @@ public class PromotionServiceImpl implements PromotionService {
 
     @Override
     public void displayCustomerVoucher() {
+        displayCustomerService();
         System.out.println("Nhập số lượng voucher khuyến mãi 10%: ");
         int inputVoucher10 = Integer.parseInt(scanner.nextLine());
         System.out.println("Nhập số lượng voucher khuyến mãi 20%: ");
@@ -88,8 +89,7 @@ public class PromotionServiceImpl implements PromotionService {
                 System.out.println(stackBooking.pop() + " nhận được voucher khuyến mãi 50%");
             }
         } catch (EmptyStackException e) {
-            System.out.println("");
+            System.out.println("đã hết khách hàng nhận");
         }
-
     }
 }
