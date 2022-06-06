@@ -39,12 +39,13 @@ public class ManagementStaff extends Staff{
 
     @Override
     public String getInfo() {
-        return String.format("%s,%s,%s,%s,%s,%s",
+        return String.format("%s,%s,%s,%s,%s,%s,%s",
                 super.getId(),
                 super.getName(),
                 super.getDateOfBirth(),
                 super.getAddress(),
                 this.getSalary(),
-                this.getCoefficientsSalary());
+                this.getCoefficientsSalary(),
+                "Quản lý");
     }
 }

@@ -1,13 +1,14 @@
 package _quan_ly_nhan_vien.service.impl;
 
-import _quan_ly_codegym.models.Student;
 import _quan_ly_nhan_vien.exception.NotFoundEmployeeException;
 import _quan_ly_nhan_vien.models.ManagementStaff;
+import _quan_ly_nhan_vien.models.Staff;
 import _quan_ly_nhan_vien.service.ManagementStaffService;
 import _quan_ly_nhan_vien.utils.ReadAndWrite;
 import _quan_ly_nhan_vien.utils.RegexData;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,6 +16,8 @@ public class ManagementStaffServiceImpl implements ManagementStaffService {
     public static Scanner scanner = new Scanner(System.in);
 
     public static List<ManagementStaff> managementStaffList = new ArrayList<>();
+
+    public static List<Staff> staffList = new LinkedList<>();
 
     private static final String REGEX_BIRTHDAY = "^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$";
 
@@ -33,15 +36,15 @@ public class ManagementStaffServiceImpl implements ManagementStaffService {
 
     @Override
     public void addNew() {
-        managementStaffList.clear();
-        ReadAndWrite.readManagementStaff("src/_quan_ly_nhan_vien/data/saves.csv", managementStaffList);
+        staffList.clear();
+        ReadAndWrite.readStaff("src/_quan_ly_nhan_vien/data/saves.csv", staffList);
 
         int id = 0;
 
-        if (managementStaffList.isEmpty()) {
+        if (staffList.isEmpty()) {
             id = 1;
         } else {
-            for (ManagementStaff item: managementStaffList) {
+            for (Staff item: staffList) {
                id = item.getId() + 1;
             }
         }
@@ -58,20 +61,22 @@ public class ManagementStaffServiceImpl implements ManagementStaffService {
         double coefficientsSalary = Double.parseDouble(RegexData.regexCoefficientsSalary(REGEX_INT));
 
         ManagementStaff managementStaff = new ManagementStaff(id, name, dateOfBirth, address, salary, coefficientsSalary);
-        managementStaffList.add(managementStaff);
+        staffList.add(managementStaff);
         System.out.println("thêm mới thành công!");
 
-        ReadAndWrite.writeManagementStaff("src/_quan_ly_nhan_vien/data/saves.csv", managementStaffList);
+        ReadAndWrite.writeStaff("src/_quan_ly_nhan_vien/data/saves.csv", staffList);
     }
 
     @Override
     public void delete() {
-        managementStaffList.clear();
+        staffList.clear();
 
-        ReadAndWrite.readManagementStaff("src/_quan_ly_nhan_vien/data/saves.csv", managementStaffList);
+        ReadAndWrite.readStaff("src/_quan_ly_nhan_vien/data/saves.csv", staffList);
 
-        for (ManagementStaff item: managementStaffList) {
-            System.out.println(item);
+        for (Staff item: staffList) {
+            if (item instanceof ManagementStaff) {
+                System.out.println(item);
+            }
         }
 
         System.out.println("nhập id muốn xóa: ");
@@ -79,8 +84,8 @@ public class ManagementStaffServiceImpl implements ManagementStaffService {
         int id = Integer.parseInt(scanner.nextLine());
 
         int count = 0;
-        for (int i = 0; i < managementStaffList.size(); i++) {
-            if (id == managementStaffList.get(i).getId()) {
+        for (int i = 0; i < staffList.size(); i++) {
+            if (staffList.get(i) instanceof ManagementStaff && id == staffList.get(i).getId()) {
                 System.out.println("Bạn có chắc chắn muốn xóa hay không?");
                 System.out.println("1. có");
                 System.out.println("2. không");
@@ -89,7 +94,7 @@ public class ManagementStaffServiceImpl implements ManagementStaffService {
 
                 switch (inputChoose) {
                     case 1:
-                        managementStaffList.remove(i);
+                        staffList.remove(i);
                         System.out.println("đã xóa thành công");
                         count++;
                         break;
@@ -108,7 +113,7 @@ public class ManagementStaffServiceImpl implements ManagementStaffService {
             System.out.println(e.getMessage());
         }
 
-        ReadAndWrite.writeManagementStaff("src/_quan_ly_nhan_vien/data/saves.csv", managementStaffList);
+        ReadAndWrite.writeStaff("src/_quan_ly_nhan_vien/data/saves.csv", staffList);
     }
 
     @Override

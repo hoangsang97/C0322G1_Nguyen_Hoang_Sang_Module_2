@@ -1,8 +1,8 @@
 package _quan_ly_nhan_vien.service.impl;
 
 import _quan_ly_nhan_vien.exception.NotFoundEmployeeException;
-import _quan_ly_nhan_vien.models.ManagementStaff;
 import _quan_ly_nhan_vien.models.ProductionStaff;
+import _quan_ly_nhan_vien.models.Staff;
 import _quan_ly_nhan_vien.service.ProductionStaffService;
 import _quan_ly_nhan_vien.utils.ReadAndWrite;
 import _quan_ly_nhan_vien.utils.RegexData;
@@ -16,6 +16,8 @@ public class ProductionStaffServiceImpl implements ProductionStaffService {
 
     public static List<ProductionStaff> productionStaffList = new LinkedList<>();
 
+    public static List<Staff> staffList = new LinkedList<>();
+
     private static final String REGEX_BIRTHDAY = "^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$";
 
     public static final String REGEX_INT = "^[0-9]+$";
@@ -24,7 +26,7 @@ public class ProductionStaffServiceImpl implements ProductionStaffService {
     public void view() {
         productionStaffList.clear();
 
-        ReadAndWrite.readProductionStaff("src/_quan_ly_nhan_vien/data/product.csv", productionStaffList);
+        ReadAndWrite.readProductionStaff("src/_quan_ly_nhan_vien/data/saves.csv", productionStaffList);
 
         for (ProductionStaff item: productionStaffList) {
             System.out.println(item);
@@ -33,15 +35,16 @@ public class ProductionStaffServiceImpl implements ProductionStaffService {
 
     @Override
     public void addNew() {
-        productionStaffList.clear();
-        ReadAndWrite.readProductionStaff("src/_quan_ly_nhan_vien/data/product.csv", productionStaffList);
+        staffList.clear();
+
+        ReadAndWrite.readStaff("src/_quan_ly_nhan_vien/data/saves.csv", staffList);
 
         int id = 0;
 
-        if (productionStaffList.isEmpty()) {
+        if (staffList.isEmpty()) {
             id = 1;
         } else {
-            for (ProductionStaff item: productionStaffList) {
+            for (Staff item: staffList) {
                 id = item.getId() + 1;
             }
         }
@@ -58,20 +61,22 @@ public class ProductionStaffServiceImpl implements ProductionStaffService {
         double price = Double.parseDouble(RegexData.regexPrice(REGEX_INT));
 
         ProductionStaff productionStaff = new ProductionStaff(id, name, dateOfBirth, address, product, price);
-        productionStaffList.add(productionStaff);
+        staffList.add(productionStaff);
         System.out.println("thêm mới thành công!");
 
-        ReadAndWrite.writeProductionStaff("src/_quan_ly_nhan_vien/data/product.csv", productionStaffList);
+        ReadAndWrite.writeStaff("src/_quan_ly_nhan_vien/data/saves.csv", staffList);
     }
 
     @Override
     public void delete() {
-        productionStaffList.clear();
+        staffList.clear();
 
-        ReadAndWrite.readProductionStaff("src/_quan_ly_nhan_vien/data/product.csv", productionStaffList);
+        ReadAndWrite.readStaff("src/_quan_ly_nhan_vien/data/saves.csv", staffList);
 
-        for (ProductionStaff item: productionStaffList) {
-            System.out.println(item);
+        for (Staff item: staffList) {
+            if (item instanceof ProductionStaff) {
+                System.out.println(item);
+            }
         }
 
         System.out.println("nhập id muốn xóa: ");
@@ -79,8 +84,8 @@ public class ProductionStaffServiceImpl implements ProductionStaffService {
         int id = Integer.parseInt(scanner.nextLine());
 
         int count = 0;
-        for (int i = 0; i < productionStaffList.size(); i++) {
-            if (id == productionStaffList.get(i).getId()) {
+        for (int i = 0; i < staffList.size(); i++) {
+            if (staffList.get(i) instanceof ProductionStaff && id == staffList.get(i).getId()) {
                 System.out.println("Bạn có chắc chắn muốn xóa hay không?");
                 System.out.println("1. có");
                 System.out.println("2. không");
@@ -89,7 +94,7 @@ public class ProductionStaffServiceImpl implements ProductionStaffService {
 
                 switch (inputChoose) {
                     case 1:
-                        productionStaffList.remove(i);
+                        staffList.remove(i);
                         System.out.println("đã xóa thành công");
                         count++;
                         break;
@@ -108,14 +113,14 @@ public class ProductionStaffServiceImpl implements ProductionStaffService {
             System.out.println(e.getMessage());
         }
 
-        ReadAndWrite.writeProductionStaff("src/_quan_ly_nhan_vien/data/product.csv", productionStaffList);
+        ReadAndWrite.writeStaff("src/_quan_ly_nhan_vien/data/saves.csv", staffList);
     }
 
     @Override
     public void search() {
         productionStaffList.clear();
 
-        ReadAndWrite.readProductionStaff("src/_quan_ly_nhan_vien/data/product.csv", productionStaffList);
+        ReadAndWrite.readProductionStaff("src/_quan_ly_nhan_vien/data/saves.csv", productionStaffList);
 
         System.out.println("Bạn muốn tìm kiếm theo: ");
         System.out.println("1. Mã nhân viên");

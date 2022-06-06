@@ -39,12 +39,13 @@ public class ProductionStaff extends Staff{
 
     @Override
     public String getInfo() {
-        return String.format("%s,%s,%s,%s,%s,%s",
+        return String.format("%s,%s,%s,%s,%s,%s,%s",
                 super.getId(),
                 super.getName(),
                 super.getDateOfBirth(),
                 super.getAddress(),
                 this.getProduct(),
-                this.getPrice());
+                this.getPrice(),
+                "Sản xuất");
     }
 }

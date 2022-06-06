@@ -164,8 +164,4 @@ public class DisplayManagerStaff {
 
         return inputChoose;
     }
-
-    public static void main(String[] args) {
-        disPlayManageStaff();
-    }
 }
