@@ -68,6 +68,24 @@ public class RegexData {
         return temp;
     }
 
+    public static String regexIdStudent(String regex) {
+        boolean check = true;
+        String temp = null;
+        do {
+            temp = scanner.nextLine();
+            check = false;
+            try {
+                if (!temp.matches(regex)) {
+                    check = true;
+                    throw new InvalidIdPointException("Bạn đã nhập sai định dạng, Mã sinh viên 8 số");
+                }
+            } catch (InvalidIdPointException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (check);
+        return temp;
+    }
+
     public static String regexAge (String temp, String regex) {
         boolean check = true;
         while (check) {
