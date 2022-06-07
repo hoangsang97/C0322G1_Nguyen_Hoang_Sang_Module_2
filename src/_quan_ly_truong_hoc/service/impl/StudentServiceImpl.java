@@ -20,9 +20,9 @@ public class StudentServiceImpl implements StudentService {
 
     private static final String REGEX_BIRTHDAY = "^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$";
 
-    public static final String REGEX_POINT = "^[0-9]$";
+    public static final String REGEX_POINT = "^[0-11]$";
 
-    public static final String REGEX_ID_STUDENT = "^([0]{1}\\d{9})$";
+    public static final String REGEX_ID_STUDENT = "^(\\d{8})$";
 
     @Override
     public void view() {
@@ -68,6 +68,7 @@ public class StudentServiceImpl implements StudentService {
             for (Student item: studentList) {
                 if (idStudent.equals(item.getIdStudent())) {
                     System.out.println("Mã sinh viên đã tồn tại, xin vui lòng nhập lại");
+                    checkIdStudent = true;
                 } else {
                     checkIdStudent = false;
                 }
@@ -194,6 +195,7 @@ public class StudentServiceImpl implements StudentService {
                     for (Student item: studentList) {
                         if (idStudent.equals(item.getIdStudent())) {
                             System.out.println("Mã sinh viên đã tồn tại, xin vui lòng nhập lại");
+                            checkIdStudent = true;
                         } else {
                             checkIdStudent = false;
                         }
