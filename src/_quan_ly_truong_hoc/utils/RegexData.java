@@ -1,7 +1,7 @@
 package _quan_ly_truong_hoc.utils;
 
 import _case_study.utils.AgeException;
-import _quan_ly_truong_hoc.exception.InvalidIdPointException;
+import _quan_ly_codegym.exception.InvalidIdStudentException;
 import _quan_ly_truong_hoc.exception.InvalidIdSalaryException;
 import _quan_ly_truong_hoc.exception.InvalidIdTimeException;
 
@@ -50,24 +50,6 @@ public class RegexData {
         return temp;
     }
 
-    public static String regexPoint(String regex) {
-        boolean check = true;
-        String temp = null;
-        do {
-            temp = scanner.nextLine();
-            check = false;
-            try {
-                if (!temp.matches(regex)) {
-                    check = true;
-                    throw new InvalidIdPointException("Bạn đã nhập sai định dạng, Điểm trung bình (0~10)");
-                }
-            } catch (InvalidIdPointException e) {
-                System.out.println(e.getMessage());
-            }
-        } while (check);
-        return temp;
-    }
-
     public static String regexIdStudent(String regex) {
         boolean check = true;
         String temp = null;
@@ -77,9 +59,9 @@ public class RegexData {
             try {
                 if (!temp.matches(regex)) {
                     check = true;
-                    throw new InvalidIdPointException("Bạn đã nhập sai định dạng, Mã sinh viên 8 số");
+                    throw new InvalidIdStudentException("Bạn đã nhập sai định dạng, Mã sinh viên 8 số");
                 }
-            } catch (InvalidIdPointException e) {
+            } catch (InvalidIdStudentException e) {
                 System.out.println(e.getMessage());
             }
         } while (check);
