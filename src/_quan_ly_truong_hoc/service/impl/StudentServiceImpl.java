@@ -185,7 +185,21 @@ public class StudentServiceImpl implements StudentService {
                 System.out.println("Nhập địa chỉ: ");
                 String address = scanner.nextLine();
                 System.out.println("Nhập mã sinh viên: ");
-                String idStudent = scanner.nextLine();
+                String idStudent;
+
+                boolean checkIdStudent = true;
+                do {
+                    idStudent = RegexData.regexIdStudent(REGEX_ID_STUDENT);
+
+                    for (Student item: studentList) {
+                        if (idStudent.equals(item.getIdStudent())) {
+                            System.out.println("Mã sinh viên đã tồn tại, xin vui lòng nhập lại");
+                        } else {
+                            checkIdStudent = false;
+                        }
+                    }
+                } while (checkIdStudent);
+
                 System.out.println("Nhập điểm trung bình: ");
                 double point = Double.parseDouble(RegexData.regexPoint(REGEX_POINT));
 
