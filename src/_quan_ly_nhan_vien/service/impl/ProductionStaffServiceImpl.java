@@ -26,7 +26,7 @@ public class ProductionStaffServiceImpl implements ProductionStaffService {
     public void view() {
         productionStaffList.clear();
 
-        ReadAndWrite.readProductionStaff("src/_quan_ly_nhan_vien/data/student.csv", productionStaffList);
+        ReadAndWrite.readProductionStaff("src/_quan_ly_nhan_vien/data/experience.csv", productionStaffList);
 
         for (ProductionStaff item: productionStaffList) {
             System.out.println(item);
@@ -37,7 +37,7 @@ public class ProductionStaffServiceImpl implements ProductionStaffService {
     public void addNew() {
         staffList.clear();
 
-        ReadAndWrite.readStaff("src/_quan_ly_nhan_vien/data/student.csv", staffList);
+        ReadAndWrite.readStaff("src/_quan_ly_nhan_vien/data/experience.csv", staffList);
 
         int id = 0;
 
@@ -64,14 +64,14 @@ public class ProductionStaffServiceImpl implements ProductionStaffService {
         staffList.add(productionStaff);
         System.out.println("thêm mới thành công!");
 
-        ReadAndWrite.writeStaff("src/_quan_ly_nhan_vien/data/student.csv", staffList);
+        ReadAndWrite.writeStaff("src/_quan_ly_nhan_vien/data/experience.csv", staffList);
     }
 
     @Override
     public void delete() {
         staffList.clear();
 
-        ReadAndWrite.readStaff("src/_quan_ly_nhan_vien/data/student.csv", staffList);
+        ReadAndWrite.readStaff("src/_quan_ly_nhan_vien/data/experience.csv", staffList);
 
         for (Staff item: staffList) {
             if (item instanceof ProductionStaff) {
@@ -113,14 +113,14 @@ public class ProductionStaffServiceImpl implements ProductionStaffService {
             System.out.println(e.getMessage());
         }
 
-        ReadAndWrite.writeStaff("src/_quan_ly_nhan_vien/data/student.csv", staffList);
+        ReadAndWrite.writeStaff("src/_quan_ly_nhan_vien/data/experience.csv", staffList);
     }
 
     @Override
     public void search() {
         productionStaffList.clear();
 
-        ReadAndWrite.readProductionStaff("src/_quan_ly_nhan_vien/data/student.csv", productionStaffList);
+        ReadAndWrite.readProductionStaff("src/_quan_ly_nhan_vien/data/experience.csv", productionStaffList);
 
         System.out.println("Bạn muốn tìm kiếm theo: ");
         System.out.println("1. Mã nhân viên");

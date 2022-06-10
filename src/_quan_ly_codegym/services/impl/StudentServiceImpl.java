@@ -22,7 +22,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void addNew() {
-        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/student.csv", studentList);
+        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/experience.csv", studentList);
         String id;
         boolean checkId = true;
         do {
@@ -52,14 +52,14 @@ public class StudentServiceImpl implements StudentService {
         studentList.add(student);
         System.out.println("thêm mới thành công!");
 
-        ReadAndWrite.writeStudent("src/_quan_ly_codegym/data/student.csv", studentList);
+        ReadAndWrite.writeStudent("src/_quan_ly_codegym/data/experience.csv", studentList);
     }
 
     @Override
     public void delete() {
         studentList.clear();
 
-        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/student.csv", studentList);
+        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/experience.csv", studentList);
 
         for (Student item: studentList) {
             System.out.println(item);
@@ -71,14 +71,14 @@ public class StudentServiceImpl implements StudentService {
 
         System.out.println("đã xóa thành công");
 
-        ReadAndWrite.writeStudent("src/_quan_ly_codegym/data/student.csv", studentList);
+        ReadAndWrite.writeStudent("src/_quan_ly_codegym/data/experience.csv", studentList);
     }
 
     @Override
     public void view() {
         studentList.clear();
 
-        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/student.csv", studentList);
+        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/experience.csv", studentList);
 
         for (Student item: studentList) {
             System.out.println(item);
@@ -89,7 +89,7 @@ public class StudentServiceImpl implements StudentService {
     public void search() {
         studentList.clear();
 
-        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/student.csv", studentList);
+        ReadAndWrite.readStudent("src/_quan_ly_codegym/data/experience.csv", studentList);
 
         System.out.println("Nhập tên học sinh muốn tìm: ");
         String name = scanner.nextLine();

@@ -22,7 +22,7 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public void addNew() {
-        ReadAndWrite.readTeacher("src/_quan_ly_codegym/data/student.csv", teacherList);
+        ReadAndWrite.readTeacher("src/_quan_ly_codegym/data/experience.csv", teacherList);
         String id;
         boolean checkId = true;
         do {
@@ -50,14 +50,14 @@ public class TeacherServiceImpl implements TeacherService {
         teacherList.add(teacher);
         System.out.println("thêm mới thành công!");
 
-        ReadAndWrite.writeTeacher("src/_quan_ly_codegym/data/teacher.csv", teacherList);
+        ReadAndWrite.writeTeacher("src/_quan_ly_codegym/data/fresher.csv", teacherList);
     }
 
     @Override
     public void delete() {
         teacherList.clear();
 
-        ReadAndWrite.readTeacher("src/_quan_ly_codegym/data/teacher.csv", teacherList);
+        ReadAndWrite.readTeacher("src/_quan_ly_codegym/data/fresher.csv", teacherList);
 
         for (Teacher item: teacherList) {
             System.out.println(item);
@@ -69,14 +69,14 @@ public class TeacherServiceImpl implements TeacherService {
 
         System.out.println("đã xóa thành công");
 
-        ReadAndWrite.writeTeacher("src/_quan_ly_codegym/data/teacher.csv", teacherList);
+        ReadAndWrite.writeTeacher("src/_quan_ly_codegym/data/fresher.csv", teacherList);
     }
 
     @Override
     public void view() {
         teacherList.clear();
 
-        ReadAndWrite.readTeacher("src/_quan_ly_codegym/data/teacher.csv", teacherList);
+        ReadAndWrite.readTeacher("src/_quan_ly_codegym/data/fresher.csv", teacherList);
 
         for (Teacher item: teacherList) {
             System.out.println(item);
@@ -87,7 +87,7 @@ public class TeacherServiceImpl implements TeacherService {
     public void search() {
         teacherList.clear();
 
-        ReadAndWrite.writeTeacher("src/_quan_ly_codegym/data/teacher.csv", teacherList);
+        ReadAndWrite.writeTeacher("src/_quan_ly_codegym/data/fresher.csv", teacherList);
 
         System.out.println("Nhập tên giáo viên muốn tìm: ");
         String name = scanner.nextLine();
